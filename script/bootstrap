@@ -1,0 +1,102 @@
+#!/bin/sh
+#
+# bootstrap installs things.
+
+PROJECT_NAME=$(basename `pwd`)
+LOG_OUTPUT="/tmp/$PROJECT_NAME-bootstrap"
+RUBY_VERSION="1.9.3-p194"
+
+set -e
+
+echo ''
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  echo "  See $LOG_OUTPUT for more information."
+  exit
+}
+
+# rbenv (version and gemsets [if installed])
+if test $(which rbenv)
+then
+  info '.rbenv-version'
+  if "`cat .rbenv-version`" != "$RUBY_VERSION"
+  then
+    echo $RUBY_VERSION > .rbenv-version
+  fi
+  success '.rbenv-version'
+
+  if [ -d `rbenv root`/plugins/rbenv-gemset ]
+  then
+    info '.rbenv-gemset'
+    if "`cat .rbenv-gemsets`" != "$PROJECT_NAME"
+    then
+      echo $PROJECT_NAME > .rbenv-gemsets
+      rbenv gemset create $RUBY_VERSION $PROJECT_NAME >> $LOG_OUTPUT
+    fi
+    success '.rbenv-gemset'
+  fi
+fi
+
+# bundler
+info 'bundler'
+if test ! $(which bundle)
+then
+  gem install bundler > $LOG_OUTPUT
+fi
+success 'bundler'
+
+# gems
+info 'gems'
+if bundle install --binstubs --path vendor/gems >> $LOG_OUTPUT
+then
+  success 'gems'
+else
+  fail 'gems'
+fi
+
+# git
+gitignore () {
+  if ! $(cat .gitignore | grep "$1")
+  then
+    echo "$1" >> .gitignore
+  fi
+}
+
+if [ -d .git ]
+then
+  info 'git'
+  git add .rbenv-*
+  git commit -m "Added .rbenv files for our project environment."
+
+  if ! [ -f .gitignore ]
+  then
+    echo "" > .gitignore
+  fi
+
+  gitignore '.bundler'
+  gitignore 'vendor/gems'
+
+  git add .gitignore
+  git commit -m "Updated .gitignore with exclusion of vendor/gems and .bundler."
+
+  success 'git'
+else
+  success '`pwd` is not a git repository, nothing performed.'
+fi
+
+echo ""
+echo "  You're all set!"
