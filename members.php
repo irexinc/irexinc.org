@@ -133,7 +133,7 @@ function get_members($members)
         </table>
       </div>
 
-      <div id="footer">Copyright &copy; 2013 - Indiana Real Estate Exchangors, Inc.</div>
+      <div id="footer">Copyright &copy; 1989 - 2013 &mdash; Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;
     </div>
 
