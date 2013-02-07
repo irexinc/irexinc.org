@@ -1,0 +1,3 @@
+User-agent: 8
+Disallow: /assests/documents/
+Sitemap: http://irexinc.org/sitemap.xml
