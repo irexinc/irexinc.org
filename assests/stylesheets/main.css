@@ -1,5 +1,5 @@
 html {
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   background-color: #90AB76;
   color: #2d2d2d;
   padding: 0;
@@ -30,15 +30,15 @@ a {
 }
 
 a.dashed {
-  border-bottom: 1px dashed #000 !important;
+  border-bottom: 1px dashed #2d2d2d !important;
 }
 
 a.dotted {
-  border-bottom: 1px dotted #000 !important;
+  border-bottom: 1px dotted #2d2d2d !important;
 }
 
 a.solid {
-  border-bottom: 1px solid #000 !important;
+  border-bottom: 1px solid #2d2d2d !important;
 }
 
 a:hover {
@@ -47,16 +47,8 @@ a:hover {
 }
 
 .by-laws h4 {
-  margin: 0;
+  margin: 0 0 -13px 0;
   padding: 0;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: -13px;
-  -moz-margin-before: 0;
-  -moz-margin-after: -13px;
-  -ms-margin-before: 0;
-  -ms-margin-after: -13px;
-  -o-margin-before: 0;
-  -o-margin-after: -13px;
 }
 
 .by-laws a.top {
@@ -76,7 +68,7 @@ tr {
 tr.header {
   font-weight: 700;
   font-size: 18px;
-  border-bottom: 2px solid #999;
+  border-bottom: 2px solid #5D5D5D;
 }
 
 tr.out-of-state {
@@ -85,7 +77,7 @@ tr.out-of-state {
 
 td {
   padding: 5px;
-  border: 1px solid #bbb;
+  border: 1px solid #5D5D5D;
 }
 
 table.members {
@@ -93,19 +85,12 @@ table.members {
 }
 
 table.members td {
-  padding: 5px 0;
+  padding: 5px 1px;
+  width: 328px;
 }
 
 table.members b.name {
   font-size: 18px;
-}
-
-td.left {
-  text-align: left;
-}
-
-td.right {
-  text-align: right;
 }
 
 iframe {
@@ -114,8 +99,10 @@ iframe {
   height: 500px;
   text-align: center;
   border: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
+
 
 #table-of-contents ol li {
   margin-bottom: 5px;
@@ -138,41 +125,35 @@ iframe {
   position: relative;
   height: 430px;
   padding-bottom: 10px;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 5px;
-  border: 1px solid #b5b5b5;
-  /*border-top: none;*/
   box-shadow: 0 0 10px 1px #444;
   -webkit-box-shadow: 0 0 10px 1px #444;
-  z-index: 80;
 }
 
 #header #banner img {
   margin: 10px 0 0 10px;
   width: 1000px;
   height: 328px;
-  z-index: 60;
   padding-bottom: 60px;
 }
 
 #header #banner h1 {
   position: relative;
   top: -80px;
-  width: 100%;
+  width: 1000px;
+  background-color: #fff;
   text-align: center;
   letter-spacing: 5px;
   word-spacing: 10px;
   font-size: 40px;
-  margin: 0;
-  z-index: 65;
+  margin: 0 0 0 10px;
 }
 
 #header #nav {
   position: relative;
   font-weight: 600;
   text-align: center;
-  padding: 0;
-  margin: 0;
   top: -80px;
 }
 
@@ -181,7 +162,7 @@ iframe {
 }
 
 #header #nav a.active {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px solid #000;
 }
 
 #header #nav ul li {
@@ -199,25 +180,16 @@ iframe {
 #news {
   position: relative;
   height: 225px;
-  background-color: #fff;
+  background-color: #F7FCF5;
   border-radius: 5px;
-  border: 1px solid #b5b5b5;
   box-shadow: 0 0 10px 1px #444;
   -webkit-box-shadow: 0 0 10px 1px #444;
 }
-/*
-#news .header {
-  font-size: 25px;
-  padding-bottom: 5px;
-  margin: 10px 0;
-  text-align: center;
-  border-bottom: 2px solid #bbb;
-}*/
 
 #news .first,
 #news .second,
 #news .third {
-  background: #fff;
+  background: #F7FCF5;
   position: relative;
   width: 300px;
   padding: 10px;
@@ -243,8 +215,6 @@ iframe {
 #news .news-title {
   position: relative;
   top: -5px;
-  margin: 0;
-  padding: 0;
   width: 320px;
   font-weight: 700;
   font-size: 20px;
@@ -258,29 +228,26 @@ iframe {
 }
 
 #news .content {
-  /*position: relative;*/
   font-size: 14px;
 }
 
 
 .content-block {
-  /*clear: both;*/
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 5px;
-  border: 1px solid #b5b5b5;
   box-shadow: 0 0 10px 1px #444;
   -webkit-box-shadow: 0 0 10px 1px #444;
 }
 
 .content-block .title {
   position: relative;
-  width: 1002px;
+  width: 1004px;
   left: -20px;
   padding: 0 0 5px 20px;
   margin-bottom: 5px;
-  border-bottom: 2px solid #bbb;
+  border-bottom: 2px solid #90AB76;
   font-weight: 700;
   font-size: 25px;
 }
@@ -294,8 +261,7 @@ iframe {
 }
 
 .next-meeting {
-  background-color: rgb(198, 38, 38);
-  background-color: rgba(198, 38, 38, 0.7);
+  background-color: #E05D6F;
   border: none;
   text-align: center;
 }
@@ -321,11 +287,9 @@ iframe {
 #footer {
   margin: 20px 0 -5px 0;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: #FFF;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #b5b5b5;
-  border-bottom: none;
   box-shadow: 0 0 10px 1px #444;
   -webkit-box-shadow: 0 0 10px 1px #444;
 }

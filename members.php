@@ -83,7 +83,7 @@ function get_members($members)
     <meta name="author" content="Matt Emborsky <memborsky@gmail.com>" />
     <meta charset="utf-8" />
 
-    <title>Indiana Real Estate Exchangers, Inc.</title>
+    <title>Indiana Real Estate Exchangors, Inc.</title>
 
     <link href='assests/stylesheets/normalize.css' rel='stylesheet'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet'>
@@ -96,8 +96,8 @@ function get_members($members)
     <div id="content-wrapper">
       <div id="header">
         <div id="banner">
-          <img src="assests/images/logo_banner.bmp" alt="Indiana Real Estate Exchangers, Inc." />
-          <h1>Indiana Real Estate Exchangers, Inc.</h1>
+          <img src="assests/images/logo_banner.bmp" alt="Indiana Real Estate Exchangors, Inc." />
+          <h1>Indiana Real Estate Exchangors, Inc.</h1>
         </div>
 
         <div id="nav">
@@ -133,7 +133,7 @@ function get_members($members)
         </table>
       </div>
 
-      <div id="footer">Copyright &copy; 2013 - Indiana Real Estate Exchangers, Inc.</div>
+      <div id="footer">Copyright &copy; 2013 - Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;
     </div>
 
