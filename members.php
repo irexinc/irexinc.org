@@ -90,6 +90,15 @@ function get_members($members)
     <link href="/assests/stylesheets/main.css" rel="stylesheet" media="screen, projection">
 
     <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+    <script src="/assests/javascript/jquery.min.js"></script>
+
+    <!-- Set the active navigation item. -->
+    <script>
+      $(function() {
+        $('#nav a[href$="' + location.pathname + '"]').attr('class', 'active');
+      });
+    </script>
+
   </head>
 
   <body>
@@ -103,7 +112,7 @@ function get_members($members)
         <div id="nav">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#" class="active">Members</a></li>
+            <li><a href="/members.php">Members</a></li>
             <li><a href="/calendar.html">Calendar</a></li>
             <li><a href="/by-laws.html">By-Laws</a></li>
             <li><a href="/documents.html">Documents</a></li>
