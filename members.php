@@ -1,23 +1,3 @@
-<?php
-
-require_once("connections.php");
-
-$query = "SELECT fname, lname, company, city, address, state, zip, ophone, email, officer FROM members WHERE isactive AND isboard ORDER BY lname; " .
-  "SELECT fname, lname, company, city, address, state, zip, ophone, email FROM members WHERE isactive AND NOT isboard ORDER BY lname;";
-
-function check_phone($number)
-{
-  if (preg_match('^[0-9]{3}+-[0-9]{3}+-[0-9]{4}^', $number)) {
-    return $number;
-  }
-  else {
-    $items = array('/\ /', '/\+/', '/\-/', '/\./', '/\,/', '/\(/', '/\)/', '/[a-zA-Z]/');
-    $clean = preg_replace($items, '', $number);
-    return substr($clean, 0, 3) . "-" . substr($clean, 3, 3) . "-" . substr($clean, 6, 4);
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,6 +44,23 @@ function check_phone($number)
 
 
 <?php
+
+require_once("connections.php");
+
+$query =  "SELECT fname, lname, company, city, address, state, zip, ophone, email, officer FROM members WHERE isactive AND isboard ORDER BY lname; " .
+          "SELECT fname, lname, company, city, address, state, zip, ophone, email FROM members WHERE isactive AND NOT isboard ORDER BY lname;";
+
+function check_phone($number)
+{
+  if (preg_match('^[0-9]{3}+-[0-9]{3}+-[0-9]{4}^', $number)) {
+    return $number;
+  }
+  else {
+    $items = array('/\ /', '/\+/', '/\-/', '/\./', '/\,/', '/\(/', '/\)/', '/[a-zA-Z]/');
+    $clean = preg_replace($items, '', $number);
+    return substr($clean, 0, 3) . "-" . substr($clean, 3, 3) . "-" . substr($clean, 6, 4);
+  }
+}
 
 if ($db->multi_query($query)) {
   do {
@@ -136,6 +133,8 @@ if ($db->multi_query($query)) {
 <?php
     }
   } while ($db->next_result());
+
+  $db->close();
 }
 ?>
       <div id="footer">Copyright &copy; 1989 - 2013 &mdash; Indiana Real Estate Exchangors, Inc.</div>
@@ -145,4 +144,3 @@ if ($db->multi_query($query)) {
   </body>
 
 </html>
-<?php $db->close(); ?>
