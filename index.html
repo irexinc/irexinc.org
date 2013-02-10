@@ -16,8 +16,8 @@
 
     <!-- Set the active navigation item. -->
     <script>
-      $(function() {
-        $('#nav a[href$="' + location.pathname + '"]').attr('class', 'active');
+      $(document).ready(function() {
+          $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
       });
     </script>
 
