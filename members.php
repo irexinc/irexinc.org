@@ -1,11 +1,9 @@
 <?php
 
-$query = array(
-  "0" => "SELECT fname, lname, company, city, address, state, zip, ophone, email, officer FROM members WHERE isactive AND isboard ORDER BY lname;",
-  "1" => "SELECT fname, lname, company, city, address, state, zip, ophone, email FROM members WHERE isactive AND NOT isboard ORDER BY lname;"
-);
+require_once("connections.php");
 
-require_once("../connections.php");
+$query = "SELECT fname, lname, company, city, address, state, zip, ophone, email, officer FROM members WHERE isactive AND isboard ORDER BY lname; " .
+  "SELECT fname, lname, company, city, address, state, zip, ophone, email FROM members WHERE isactive AND NOT isboard ORDER BY lname;";
 
 function check_phone($number)
 {
@@ -17,62 +15,6 @@ function check_phone($number)
     $clean = preg_replace($items, '', $number);
     return substr($clean, 0, 3) . "-" . substr($clean, 3, 3) . "-" . substr($clean, 6, 4);
   }
-}
-
-function get_members($members)
-{
-  $column = 0;
-  $return = "";
-
-  while ($row = mysql_fetch_assoc($members)) {
-    if ($column == 0) {
-      $return .= "          <tr>\n";
-    }
-
-    $return .= "            <td>" .
-    "<b class=\"name\">" . $row["fname"] . " " . $row["lname"] . "</b><br>";
-
-    if (isset($row["officer"]) && !empty($row["officer"]))
-    {
-      $return .= "<em><b>" . $row["officer"] . "</b></em><br>";
-    }
-
-    if ($row["company"] !== "")
-    {
-      $return .= $row["company"] . "<br>";
-    }
-
-    $return .= $row["city"] . ", " . $row["state"] . " " . substr($row["zip"], 0, 5) . "<br>";
-
-    if ($row["ophone"] !== "") {
-      $return .= check_phone($row["ophone"]) . "<br>";
-    }
-
-    if ($row["email"] !== "") {
-      $return .= "<a href=\"mailto:" . strtolower($row["email"]) . "\">" . strtolower($row["email"]) . "</a>";
-    }
-
-    $return .= "</td>\n";
-
-    if ($column == 2) {
-      $column = 0;
-      $return .= "          </tr>\n\n";
-    }
-    else {
-      $column++;
-    }
-  }
-
-  if (substr($return, -7) !== "</tr>\n\n") {
-    while ($column <= 2) {
-      $return .= "            <td></td>\n";
-      $column++;
-    }
-
-    $return .= "          </tr>\n\n";
-  }
-
-  return $return;
 }
 
 ?>
@@ -121,27 +63,81 @@ function get_members($members)
       </div>
 
 
+<?php
+
+if ($db->multi_query($query)) {
+  do {
+
+    if ($result = $db->store_result()) {
+?>
       <div class="content-block">
         <div class="title">Board of Directors</div>
 
         <table class="members">
 <?php
-  echo get_members($result["0"]);
+      $column = 0;
+      $return = "";
+
+      while ($row = $result->fetch_assoc()) {
+        if ($column == 0) {
+          $return .= "          <tr>\n";
+        }
+
+        $return .= "            <td>" .
+        "<b class=\"name\">" . $row["fname"] . " " . $row["lname"] . "</b><br>";
+
+        if (isset($row["officer"]) && !is_null($row["officer"]))
+        {
+          $return .= "<em><b>" . $row["officer"] . "</b></em><br>";
+        }
+
+        if ($row["company"] !== "")
+        {
+          $return .= $row["company"] . "<br>";
+        }
+
+        $return .= $row["city"] . ", " . $row["state"] . " " . substr($row["zip"], 0, 5) . "<br>";
+
+        if (!is_null($row["ophone"])) {
+          $return .= check_phone($row["ophone"]) . "<br>";
+        }
+
+        if ($row["email"] !== "") {
+          $return .= "<a href=\"mailto:" . strtolower($row["email"]) . "\">" . strtolower($row["email"]) . "</a>";
+        }
+
+        $return .= "</td>\n";
+
+        if ($column == 2) {
+          $column = 0;
+          $return .= "          </tr>\n\n";
+        }
+        else {
+          $column++;
+        }
+      }
+
+      if (substr($return, -7) !== "</tr>\n\n") {
+        while ($column <= 2) {
+          $return .= "            <td></td>\n";
+          $column++;
+        }
+
+        $return .= "          </tr>\n\n";
+      }
+
+      echo $return;
+
+      $result->free();
 ?>
         </table>
       </div>
 
-
-      <div class="content-block">
-        <div class="title">Members</div>
-
-        <table class="members">
 <?php
-  echo get_members($result["1"])
+    }
+  } while ($db->next_result());
+}
 ?>
-        </table>
-      </div>
-
       <div id="footer">Copyright &copy; 1989 - 2013 &mdash; Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;
     </div>
@@ -149,3 +145,4 @@ function get_members($members)
   </body>
 
 </html>
+<?php $db->close(); ?>
