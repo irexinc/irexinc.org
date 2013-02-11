@@ -62,17 +62,25 @@ function check_phone($number)
   }
 }
 
+$count = 0;
+
 if ($db->multi_query($query)) {
   do {
 
     $db->next_result();
     if ($result = $db->store_result()) {
-?>
-      <div class="content-block">
-        <div class="title">Board of Directors</div>
 
-        <table class="members">
-<?php
+      echo "      <div class=\"content-block\">";
+
+      if ($count == 0) {
+        echo "          <div class=\"title\">Board of Directors</div>";
+        $count++;
+      } else {
+        echo "          <div class=\"title\">Members</div>";
+      }
+
+      echo "        <table class=\"members\">";
+
       $column = 0;
       $return = "";
 
