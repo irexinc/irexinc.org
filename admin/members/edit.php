@@ -79,8 +79,16 @@ if (!isset($_POST["active"])) {
 } else {
   $query = "UPDATE members SET ";
   foreach ($_POST as $key => $value) {
-    if ($key !== "id") {
-      $query .= "`" . $key . "`=" . ($value == "" ? "null" : "'" . $value . "'") . ",";
+    if ($value != "") {
+      if ($key == "active" || $key == "board") {
+        if ($value == "on") {
+          $value = "1";
+        } else {
+          $value = "0";
+        }
+      }
+
+      $query .= "`" . $key . "`='" . $value . "',";
     }
   }
 
