@@ -46,6 +46,10 @@ a:hover {
   border-color: #69c;
 }
 
+b#failed {
+  color: #E05D6F;
+}
+
 p.center {
   text-align: center;
 }
@@ -84,6 +88,14 @@ td {
   border: 1px solid #5D5D5D;
 }
 
+td.left {
+  text-align: left;
+}
+
+td.right {
+  text-align: right;
+}
+
 table.members {
   margin-top: 20px;
 }
@@ -97,6 +109,15 @@ table.members b.name {
   font-size: 18px;
 }
 
+table#login {
+  width: auto;
+}
+
+table#login td {
+  border: none;
+  width: auto;
+}
+
 iframe {
   margin-top: 20px;
   width: 100%;
@@ -107,6 +128,9 @@ iframe {
   overflow-y: hidden;
 }
 
+#notice {
+  display: none;
+}
 
 #table-of-contents ol li {
   margin-bottom: 5px;

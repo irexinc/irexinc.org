@@ -45,10 +45,10 @@
 
 <?php
 
-require_once("connections.php");
+require_once("../connections.php");
 
-$query =  "SELECT fname, lname, company, city, address, state, zip, ophone, email, officer FROM members WHERE isactive AND isboard ORDER BY lname; " .
-          "SELECT fname, lname, company, city, address, state, zip, ophone, email FROM members WHERE isactive AND NOT isboard ORDER BY lname;";
+$query =  "SELECT first_name, last_name, company, city, address, state, zip, office_phone, email, officer FROM members WHERE active AND board ORDER BY last_name; " .
+          "SELECT first_name, last_name, company, city, address, state, zip, office_phone, email FROM members WHERE active AND NOT board ORDER BY last_name;";
 
 function check_phone($number)
 {
@@ -65,6 +65,7 @@ function check_phone($number)
 if ($db->multi_query($query)) {
   do {
 
+    $db->next_result();
     if ($result = $db->store_result()) {
 ?>
       <div class="content-block">
@@ -81,25 +82,28 @@ if ($db->multi_query($query)) {
         }
 
         $return .= "            <td>" .
-        "<b class=\"name\">" . $row["fname"] . " " . $row["lname"] . "</b><br>";
+        "<b class=\"name\">" . $row["first_name"] . " " . $row["last_name"] . "</b><br>";
 
         if (isset($row["officer"]) && !is_null($row["officer"]))
         {
           $return .= "<em><b>" . $row["officer"] . "</b></em><br>";
         }
 
-        if ($row["company"] !== "")
+        if (!is_null($row["company"]))
         {
           $return .= $row["company"] . "<br>";
         }
 
-        $return .= $row["city"] . ", " . $row["state"] . " " . substr($row["zip"], 0, 5) . "<br>";
-
-        if (!is_null($row["ophone"])) {
-          $return .= check_phone($row["ophone"]) . "<br>";
+        if (!is_null($row["city"]))
+        {
+          $return .= $row["city"] . ", " . $row["state"] . " " . substr($row["zip"], 0, 5) . "<br>";
         }
 
-        if ($row["email"] !== "") {
+        if (!is_null($row["office_phone"])) {
+          $return .= check_phone($row["office_phone"]) . "<br>";
+        }
+
+        if (!is_null($row["email"])) {
           $return .= "<a href=\"mailto:" . strtolower($row["email"]) . "\">" . strtolower($row["email"]) . "</a>";
         }
 
@@ -132,7 +136,7 @@ if ($db->multi_query($query)) {
 
 <?php
     }
-  } while ($db->next_result());
+  } while ($db->more_results());
 
   $db->close();
 }
