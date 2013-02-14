@@ -1,4 +1,4 @@
-User-agent: 8
+User-agent: *
 Disallow: /assets/documents/
 Disallow: /assets/admin/
 Sitemap: http://irexinc.org/sitemap.xml
