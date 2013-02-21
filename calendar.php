@@ -1,5 +1,5 @@
 <?php
-require_once("../db/connections.php");
+require_once("db/connections.php");
 
 $events = $db->query("select * from events where substring_index(start_date, '-', 1) = year(curdate()) order by start_date, end_date;");
 
@@ -24,36 +24,57 @@ function isOutOfState($title, $address = null) {
 }
 
 function get_date($start, $end = null) {
-  $start_unix = strtotime($start);
-  $start_date = strftime("%B %-e", $start_unix);
+  $start_ = array(
+    "unix"  => strtotime($start),
+    "year"  => substr($start, 0, 4),
+    "month" => substr($start, 5, 2),
+    "day"   => substr($start, 8, 2)
+  );
 
-  if (!is_null($end)) {
-    $end_unix = strtotime($end);
+  $end_ = array(
+    "unix"  => strtotime($end),
+    "year"  => substr($end, 0, 4),
+    "month" => substr($end, 5, 2),
+    "day"   => substr($end, 8, 2)
+  );
 
-    if (substr($start, 0, 10) == substr($end, 0, 10)) {
+  // The event either only has a start date or it is all in the same month.
+  // So we will only seed the date for this case.
+  $date = strftime("%B %-e", $start_["unix"]);
 
-      // The event is a single day event.
-      $date = $start_date;
+  // We have an end date, so lets handle that.
+  if ($end_["unix"] != false) {
 
-    } else {
+    if ($end_["year"] == $start_["year"]) {
 
-      if (strftime("%m", $start_unix) == strftime("%m", $end_unix)) {
+      if ($end_["month"] == $start_["month"]) {
 
-        // The even is a multiday event in the same month.
-        $date = $start_date . " &dash; " . strftime("%-e", $end_unix);
+        if ($end_["day"] == $start_["day"]) {
+
+          // The event is a single day event; because of this, we can just use
+          // the seeded date from our start date.
+          null;
+
+        } else {
+
+          // The event is multi day but in the same month.
+          $date .= " &dash; " . strftime("%-e", $end_["unix"]);
+
+        }
 
       } else {
 
-        // The event is a multiday event elapsing over the end of the month.
-        $date = $start_date . " &dash; " . strftime("%B %-e", $end_unix);
+        // The event spans over the end of the month.
+        $date .= " &dash; " . strftime("%B %-e", $end_["unix"]);
 
       }
+
+    } else {
+
+      // The event spans over the end of the year.
+      $date = strftime("%B %-e, %Y", $start_["unix"]) . " &dash; " . strftime("%B %-e, %Y", $end_["unix"]);
+
     }
-
-  } else {
-
-    // The event only has a start date.
-    $date = $start_date;
 
   }
 
