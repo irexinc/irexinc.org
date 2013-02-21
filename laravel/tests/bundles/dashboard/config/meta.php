@@ -1,7 +1,1 @@
-<?php
-
-return array(
-
-	'bundle' => 'dashboard',
-
-);
+<?phpreturn array(  'bundle' => 'dashboard',);

@@ -1,3 +1,1 @@
-<?php namespace Repositories;
-
-class User {}
+<?php namespace Repositories;class User {}

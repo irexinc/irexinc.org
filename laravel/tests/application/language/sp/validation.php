@@ -1,7 +1,1 @@
-<?php
-
-return array(
-
-	'required' => 'El campo de atributo es necesario.',
-
-);
+<?phpreturn array(  'required' => 'El campo de atributo es necesario.',);

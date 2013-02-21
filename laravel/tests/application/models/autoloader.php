@@ -1,3 +1,1 @@
-<?php
-
-class Autoloader_HardCoded {}
+<?phpclass Autoloader_HardCoded {}

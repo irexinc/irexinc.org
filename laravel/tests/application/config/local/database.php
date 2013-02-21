@@ -1,7 +1,1 @@
-<?php
-
-return array(
-
-	'default' => 'sqlite',
-
-);
+<?phpreturn array(  'default' => 'sqlite',);

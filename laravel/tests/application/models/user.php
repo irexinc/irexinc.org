@@ -1,3 +1,1 @@
-<?php
-
-class User {}
+<?phpclass User {}

@@ -1,3 +1,1 @@
-<?php
-
-$_SERVER['bundle.dummy.start']++;
+<?php$_SERVER['bundle.dummy.start']++;

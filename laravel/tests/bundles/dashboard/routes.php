@@ -1,8 +1,1 @@
-<?php
-
-Route::get('dashboard', array('as' => 'dashboard', function()
-{
-	//
-}));
-
-Route::controller('dashboard::panel');
+<?phpRoute::get('dashboard', array('as' => 'dashboard', function(){  //}));Route::controller('dashboard::panel');
