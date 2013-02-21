@@ -57,9 +57,7 @@ session_name("IREX");
 session_start();
 
 
-require_once("../../connections.php");
-
-date_default_timezone_set("America/Indianapolis");
+require_once("../../db/connections.php");
 
 function logout() {
   session_destroy();
