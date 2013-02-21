@@ -1,3 +1,73 @@
+<?php
+require_once("../db/connections.php");
+
+$events = $db->query("select * from events where substring_index(start_date, '-', 1) = year(curdate()) order by start_date, end_date;");
+
+function isOutOfState($title, $address = null) {
+  $result = true;
+
+  if (strstr(strtolower($title), "irex") != false) {
+    $result = false;
+  }
+
+  if (!is_null($address)) {
+    $address = strtolower($address);
+
+    if (strstr($address, ", in") != false or strstr($address, ",in") != false) {
+      $result = false;
+    }
+  }
+
+  if ($result) {
+    return " class=\"out-of-state\"";
+  }
+}
+
+function get_date($start, $end = null) {
+  $start_unix = strtotime($start);
+  $start_date = strftime("%B %-e", $start_unix);
+
+  if (!is_null($end)) {
+    $end_unix = strtotime($end);
+
+    if (substr($start, 0, 10) == substr($end, 0, 10)) {
+
+      // The event is a single day event.
+      $date = $start_date;
+
+    } else {
+
+      if (strftime("%m", $start_unix) == strftime("%m", $end_unix)) {
+
+        // The even is a multiday event in the same month.
+        $date = $start_date . " &dash; " . strftime("%-e", $end_unix);
+
+      } else {
+
+        // The event is a multiday event elapsing over the end of the month.
+        $date = $start_date . " &dash; " . strftime("%B %-e", $end_unix);
+
+      }
+    }
+
+  } else {
+
+    // The event only has a start date.
+    $date = $start_date;
+
+  }
+
+  return $date;
+}
+
+function get_location($location) {
+  if ($location == "Knights of Columbus") {
+    return "<a href=\"#knights-of-columbus\">Knights of Columbus</a>";
+  } else {
+    return (string)$location;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,66 +105,46 @@
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/members.php">Members</a></li>
-            <li><a href="/calendar.html">Calendar</a></li>
+            <li><a href="/calendar.php">Calendar</a></li>
             <li><a href="/by-laws.html">By-Laws</a></li>
             <li><a href="/documents.html">Documents</a></li>
           </ul>
         </div>
       </div>
 
-<!--
-      <div class="content-block" id="news">
-        <div class="title">Latest News</div>
-
-        <div class="first">
-          <div class="news-title">2012 Marketing Session</div>
-          <div class="date">Tuesday, Janurary 15, 2013, 5:02 PM</div>
-          <div class="content">
-            <strong>When:</strong> September 27th - 28th, 2012<br>
-            <strong>Where:</strong> Radisson at the Old airport<br>
-            <strong>What:</strong> More details to come!
-          </div>
-        </div>
-
-        <div class="second">
-          <div class="news-title">Wecome Members and Guests</div>
-          <div class="date">Tuesday, Janurary 15, 2013, 5:02 PM</div>
-          <div class="content">
-            <strong>When:</strong> Thursday ......<br>
-            <strong>Where:</strong> Knights of Columbus, 1305 N. Delaware Avenue, Indianapolis<br>
-            <strong>What:</strong> Networking starts at 8:45am<br>
-            Meeting starts at 9:00am<br>
-            Coffee and doughnuts served
-          </div>
-        </div>
-
-        <div class="third">
-          <p>&nbsp;</p>
-        </div>
-      </div>
--->
-
-      <div class="content-block next-meeting">
-        <div class="title">Next Meeting - February 28</div>
-      </div>
-
       <div class="content-block">
-        <div class="title">Welcome</div>
+        <div class="title">2013 Meeting Schedule - Indiana Real Estate Exchangors, Inc.</div>
+        <div class="sub-title">Normal Meeting Time - 9:00 AM to Noon</div>
 
-        <p>We meet the <u>Second (2nd) and Fourth (4th) Thursday</u> of the month. Meetings
-        will be located at the <a href="/calendar.html#knights-of-columbus">Knights of Columbus</a>.</p>
+        <p class="note">Meetings listed in orange are for informational purposes only.</p>
 
-        <p>Networking starts around 8:45am and the meeting starts promptly at 9:00am.</p>
+        <table>
 
-        <p>Coffee and doughnuts will be served.</p>
+          <tr class="header">
+            <td>Date</td>
+            <td>Description</td>
+            <td>Location</td>
+          </tr>
 
-        <p>Actively licensed realtors/brokers are welcome as guests and encouraged to become a regular member.</p>
+<?php
+          while ($event = $events->fetch_assoc()) {
+            $result = "          <tr". isOutOfState($event['title'], $event['address']) . ">\n";
+            $result .= "            <td>" . get_date($event['start_date'], $event['end_date']) . "</td>\n";
+            $result .= "            <td>" . $event['title'] . "</td>\n";
+            $result .= "            <td>" . get_location($event['location'], $event['address']) . "</td>\n";
+            $result .= "          </tr>\n";
+            echo $result . "\n";
+          }
+?>
+        </table>
+
       </div>
 
+      <!-- Google Maps -->
+      <span id="knights-of-columbus"></span>
       <div class="content-block">
-        <div class="title">Did you know?</div>
-
-        <p>Indiana Real Estate Exchangors is on <a href="https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445" target="_blank">Facebook</a>.</p>
+        <div class="title">Knights of Columbus</div>
+        <iframe src="https://maps.google.com/maps?hl=en&amp;q=1305+North+Delaware+Street,+Indianapolis,+IN&amp;z=11&amp;output=embed"></iframe>
       </div>
 
 

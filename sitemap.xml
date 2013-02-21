@@ -14,7 +14,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://www.irexinc.org/calendar.html</loc>
+    <loc>http://www.irexinc.org/calendar.php</loc>
     <lastmod>2013-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>

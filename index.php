@@ -1,3 +1,7 @@
+<?php
+require_once("../db/connections.php");
+$next_meeting = $db->query("select unix_timestamp(start_date) as date from events where concat(curdate(), ' ', curtime()) < end_date and title = 'IREX Meeting' limit 1;")->fetch_array();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,27 +46,61 @@
         </div>
       </div>
 
-      <div class="content-block">
-        <div class="title">Forms</div>
+<!--
+      <div class="content-block" id="news">
+        <div class="title">Latest News</div>
 
-        <ul>
-          <li>Cash Inventory - <a href="/assets/documents/forms/Cash%20Inventory.doc">DOC</a> | <a href="/assets/documents/forms/Cash%20Inventory.pdf">PDF</a></li>
-          <li>Dues Invoice - <a href="/assets/documents/forms/Dues%20Invoice.doc">DOC</a> | <a href="/assets/documents/forms/Dues%20Invoice.pdf">PDF</a></li>
-          <li>Have Sheet - <a href="/assets/documents/forms/Have%20Sheet.doc">DOC</a> | <a href="/assets/documents/forms/Have%20Sheet.pdf">PDF</a></li>
-          <li>Membership Application - <a href="/assets/documents/forms/Membership%20Application.doc">DOC</a> | <a href="/assets/documents/forms/Membership%20Application.pdf">PDF</a></li>
-          <li>Offer Idea - <a href="/assets/documents/forms/Offer%20Idea.doc">DOC</a> | <a href="/assets/documents/forms/Offer%20Idea.pdf">PDF</a></li>
-          <li>Package - <a href="/assets/documents/forms/Package.doc">DOC</a> | <a href="/assets/documents/forms/Package.pdf">PDF</a></li>
-          <li>Taker Matrix - <a href="/assets/documents/forms/Taker%20Matrix.doc">DOC</a> | <a href="/assets/documents/forms/Taker%20Matrix.pdf">PDF</a></li>
-          <li>Want Sheet - <a href="/assets/documents/forms/Want%20Sheet.doc">DOC</a> | <a href="/assets/documents/forms/Want%20Sheet.pdf">PDF</a></li>
-        </ul>
+        <div class="first">
+          <div class="news-title">2012 Marketing Session</div>
+          <div class="date">Tuesday, Janurary 15, 2013, 5:02 PM</div>
+          <div class="content">
+            <strong>When:</strong> September 27th - 28th, 2012<br>
+            <strong>Where:</strong> Radisson at the Old airport<br>
+            <strong>What:</strong> More details to come!
+          </div>
+        </div>
 
+        <div class="second">
+          <div class="news-title">Wecome Members and Guests</div>
+          <div class="date">Tuesday, Janurary 15, 2013, 5:02 PM</div>
+          <div class="content">
+            <strong>When:</strong> Thursday ......<br>
+            <strong>Where:</strong> Knights of Columbus, 1305 N. Delaware Avenue, Indianapolis<br>
+            <strong>What:</strong> Networking starts at 8:45am<br>
+            Meeting starts at 9:00am<br>
+            Coffee and doughnuts served
+          </div>
+        </div>
+
+        <div class="third">
+          <p>&nbsp;</p>
+        </div>
+      </div>
+-->
+
+      <div class="content-block next-meeting">
+        <div class="title">Next Meeting is <?php echo strftime("%B %d at %l %p", $next_meeting['date']); ?>.</div>
       </div>
 
       <div class="content-block">
-        <div class="title">Past Board Meeting Minutes</div>
+        <div class="title">Welcome</div>
 
-        <p>January 24, 2013 - <a href="/assets/documents/minutes/Board%20Meeting%20Minutes%2001-24-2013.doc">DOC</a> | <a href="/assets/documents/minutes/Board%20Meeting%20Minutes%2001-24-2013.pdf">PDF</a></p>
+        <p>We meet the <u>Second (2nd) and Fourth (4th) Thursday</u> of the month. Meetings
+        will be located at the <a href="/calendar.php#knights-of-columbus">Knights of Columbus</a>.</p>
+
+        <p>Networking starts around 8:45am and the meeting starts promptly at 9:00am.</p>
+
+        <p>Coffee and doughnuts will be served.</p>
+
+        <p>Actively licensed realtors/brokers are welcome as guests and encouraged to become a regular member.</p>
       </div>
+
+      <div class="content-block">
+        <div class="title">Did you know?</div>
+
+        <p>Indiana Real Estate Exchangors is on <a href="https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445" target="_blank">Facebook</a>.</p>
+      </div>
+
 
       <div id="footer">Copyright &copy; 1989 - 2013 &mdash; Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;

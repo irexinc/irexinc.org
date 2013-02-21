@@ -1,3 +1,4 @@
+<?php require_once("../db/connections.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +36,7 @@
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/members.php">Members</a></li>
-            <li><a href="/calendar.html">Calendar</a></li>
+            <li><a href="/calendar.php">Calendar</a></li>
             <li><a href="/by-laws.html">By-Laws</a></li>
             <li><a href="/documents.html">Documents</a></li>
           </ul>
@@ -44,8 +45,6 @@
 
 
 <?php
-
-require_once("../connections.php");
 
 $query =  "SELECT first_name, last_name, company, city, address, state, zip, office_phone, email, officer FROM members WHERE active AND board ORDER BY last_name; " .
           "SELECT first_name, last_name, company, city, address, state, zip, office_phone, email FROM members WHERE active AND NOT board ORDER BY last_name;";
