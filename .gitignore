@@ -1,2 +1,3 @@
-db/connections.php
-_site/
+composer*
+app/config/production/
+vendor/
