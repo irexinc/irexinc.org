@@ -33,20 +33,13 @@
 
         <div id="nav">
           <ul>
-            @section('sidebar')
+            @section('navigation')
             <li><a href="/">Home</a></li>
             <li><a href="/members">Members</a></li>
             <li><a href="/calendar">Calendar</a></li>
             <li><a href="/by-laws">By-Laws</a></li>
             <li><a href="/documents">Documents</a></li>
             @show
-            <?php
-            if(isset($navigation)) {
-              foreach ($navigation as $nav) {
-                echo "<li><a href=\"" . $nav['href'] . "\">" . $nav['title'] . "</a></li>\n";
-              }
-            }
-            ?>
           </ul>
         </div>
       </div>
