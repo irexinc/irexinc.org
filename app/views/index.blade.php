@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('sidebar')
-  @parent
-@stop
-
 @section('content')
   <div class="content-block next-meeting">
     <div class="title">Next Meeting is MISSING.</div>
@@ -25,6 +21,6 @@
   <div class="content-block">
     <div class="title">Did you know?</div>
 
-    <p>Indiana Real Estate Exchangors is on <a href="https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445" target="_blank">Facebook</a>.</p>
+    <p>Indiana Real Estate Exchangors is on <a href="/facebook" target="_blank">Facebook</a>.</p>
   </div>
 @stop
