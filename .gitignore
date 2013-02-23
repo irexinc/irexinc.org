@@ -1,3 +1,5 @@
-composer*
+composer.phar
+composer.lock
 app/config/production/
 vendor/
+.DS_Store
