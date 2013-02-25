@@ -14,11 +14,7 @@
       <td>Location</td>
     </tr>
 
-    @foreach ($events as $event)
-
-@include('events.event')
-
-    @endforeach
+    @each('events.event', $events, 'event')
 
   </table>
 </div>
