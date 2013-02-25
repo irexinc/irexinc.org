@@ -15,6 +15,8 @@ Route::get('/', function() {
   return View::make('index');
 });
 
+Route::resource('members', 'MembersController');
+
 Route::get('/facebook', function() {
   return Redirect::to('https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445', 303);
 });
