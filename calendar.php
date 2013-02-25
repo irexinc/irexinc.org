@@ -1,5 +1,5 @@
 <?php
-require_once("db/connections.php");
+require_once("../db/connections.php");
 
 $events = $db->query("select * from events where substring_index(start_date, '-', 1) = year(curdate()) order by start_date, end_date;");
 
