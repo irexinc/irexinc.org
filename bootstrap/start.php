@@ -27,7 +27,8 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
   'development' => array('black', 'http://localhost*'),
-  'production' => array('http://irexinc.org/', 'https://irexinc.org/', 'irexinc.org')
+  'production' => array('http://irexinc.org/', 'https://irexinc.org/', 'irexinc.org'),
+  'test' => array('hooker')
 
 ));
 
