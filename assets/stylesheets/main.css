@@ -154,9 +154,8 @@ iframe {
   height: 430px;
   padding-bottom: 10px;
   background-color: #FFF;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 1px #444;
-  -webkit-box-shadow: 0 0 10px 1px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
 }
 
 #header #banner img {
@@ -204,69 +203,12 @@ iframe {
   border-right: none;
 }
 
-
-#news {
-  position: relative;
-  height: 225px;
-  background-color: #F7FCF5;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 1px #444;
-  -webkit-box-shadow: 0 0 10px 1px #444;
-}
-
-#news .first,
-#news .second,
-#news .third {
-  background: #F7FCF5;
-  position: relative;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  height: 150px;
-}
-
-#news .first {
-  top: 5px;
-  margin-left: -5px;
-}
-
-#news .second {
-  top: -167px;
-  margin-left: 330px;
-}
-
-#news .third {
-  top: -339px;
-  margin-left: 665px;
-}
-
-#news .news-title {
-  position: relative;
-  top: -5px;
-  width: 320px;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-#news .date {
-  position: relative;
-  top: -5px;
-  font-size: 12px;
-  color: #888;
-}
-
-#news .content {
-  font-size: 14px;
-}
-
-
 .content-block {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #FFF;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 1px #444;
-  -webkit-box-shadow: 0 0 10px 1px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
 }
 
 .content-block .title {
@@ -317,7 +259,6 @@ iframe {
   padding: 10px 0;
   background-color: #FFF;
   text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 1px #444;
-  -webkit-box-shadow: 0 0 10px 1px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
 }
