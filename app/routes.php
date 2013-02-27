@@ -23,7 +23,7 @@ Route::get('/', function() {
   return View::make('index')->with('next_meeting', strftime("%A, %B %d at %l %p", strtotime($meeting[0]['start_date'])));
 });
 
-Route::resource('members', 'MembersController');
+Route::get('/members', 'MembersController@index');
 
 Route::get('/calendar', 'EventsController@index');
 
