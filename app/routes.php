@@ -20,12 +20,15 @@ Route::get('/', function() {
                    ->toArray();
 
   // $next_meeting = strftime("%B %d at %l %p", next_meeting_unix_timestamp)
+  // -> Weekday, Month Day at Hour AM/PM
   return View::make('index')->with('next_meeting', strftime("%A, %B %d at %l %p", strtotime($meeting[0]['start_date'])));
 });
 
 Route::get('/members', 'MembersController@index');
 
 Route::get('/calendar', 'EventsController@index');
+
+Route::get('/by-laws', function() { return View::make('by-laws'); });
 
 Route::get('/facebook', function() {
   return Redirect::to('https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445', 303);
