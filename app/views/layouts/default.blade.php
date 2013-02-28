@@ -21,6 +21,14 @@
       });
     </script>
 
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    #header #nav ul li {
+      border: none;
+    }
+    </style>
+    <![endif]-->
+
   </head>
 
   <body>
