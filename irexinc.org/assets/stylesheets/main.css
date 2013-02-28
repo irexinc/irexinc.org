@@ -192,10 +192,15 @@ iframe {
   border-bottom: 1px solid #000;
 }
 
+#header #nav ul {
+  -webkit-padding-start: 0;
+}
+
 #header #nav ul li {
   display: inline;
-  margin: 0 -3px 0 -3px;
-  padding: 10px;
+  margin: 0 0 0 -3px;
+  *margin: 0;
+  padding: 5px 10px;
   border-right: 1px solid #ccc;
 }
 
