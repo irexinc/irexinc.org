@@ -7,19 +7,13 @@
 
     <title>Indiana Real Estate Exchangors, Inc.</title>
 
-    <link href="/assets/stylesheets/normalize.css" rel="stylesheet">
+    <!-- B-E-A-UTIFUL -->
+
+    <link href="{{ asset('/assets/stylesheets/normalize.css') }}" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
-    <link href="/assets/stylesheets/main.css" rel="stylesheet" media="screen, projection">
+    <link href="{{ asset('/assets/stylesheets/main.css') }}" rel="stylesheet" media="screen, projection">
 
-    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
-    <script src="/assets/javascript/jquery.min.js"></script>
-
-    <!-- Set the active navigation item. -->
-    <script>
-      $(document).ready(function() {
-          $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
-      });
-    </script>
+    @section('stylesheet')
 
     <!--[if lt IE 9]>
     <style type="text/css">
@@ -28,6 +22,24 @@
     }
     </style>
     <![endif]-->
+
+    @show
+
+    <!-- SPARKLES -->
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    @section('javascript')
+      <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+
+      <!-- Set the active navigation item. -->
+      <script>
+        $(document).ready(function() {
+            $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
+        });
+      </script>
+
+    @show
 
   </head>
 
@@ -41,13 +53,17 @@
 
         <div id="nav">
           <ul>
+
             @section('navigation')
-            <li><a href="/">Home</a></li>
-            <li><a href="/members">Members</a></li>
-            <li><a href="/calendar">Calendar</a></li>
-            <li><a href="/by-laws">By-Laws</a></li>
-            <li><a href="/documents">Documents</a></li>
+
+              <li><a href="{{ URL::to('') }}">Home</a></li>
+              <li><a href="{{ URL::to('members') }}">Members</a></li>
+              <li><a href="{{ URL::to('calendar') }}">Calendar</a></li>
+              <li><a href="{{ URL::to('by-laws') }}">By-Laws</a></li>
+              <li><a href="{{ URL::to('documents') }}">Documents</a></li>
+
             @show
+
           </ul>
         </div>
       </div>
@@ -57,24 +73,6 @@
       <div id="footer">Copyright &copy; 1989 - 2013 &mdash; Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;
     </div>
-
-    <script type="text/javascript">
-      var GoSquared = {};
-      GoSquared.acct = "GSN-745713-X";
-      (function(w){
-        function gs(){
-          w._gstc_lt = +new Date;
-          var d = document, g = d.createElement("script");
-          g.type = "text/javascript";
-          g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
-          var s = d.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(g, s);
-        }
-        w.addEventListener ?
-          w.addEventListener("load", gs, false) :
-          w.attachEvent("onload", gs);
-      })(window);
-    </script>
 
     <script type="text/javascript">
       var _gauges = _gauges || [];
