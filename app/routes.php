@@ -30,6 +30,8 @@ Route::get('/calendar', 'EventsController@index');
 
 Route::get('/by-laws', function() { return View::make('by-laws'); });
 
+Route::get('/documents', 'DocumentsController@index');
+
 Route::get('/facebook', function() {
   return Redirect::to('https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445', 303);
 });
