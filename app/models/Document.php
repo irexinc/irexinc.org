@@ -34,6 +34,14 @@ class Document {
 
   public static function getMinutes ()
   {
-    return Document::getFiles(dirname(__FILE__) . "/../../irexinc.org/assets/documents", "minutes");
+    $result = Document::getFiles(dirname(__FILE__) . "/../../irexinc.org/assets/documents", "minutes");
+
+    foreach ($result as $index => $file)
+    {
+      $title = explode(' ', $file['title']);
+      $result[$index]['title'] = strftime('%B %e, %Y', strtotime(end($title)));
+    }
+
+    return $result;
   }
 }
