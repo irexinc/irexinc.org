@@ -14,8 +14,8 @@ class Document {
 
       array_push($result, array(
         'title' => $filename,
-        'doc'   => '/assets/documents/' . $type . '/' . $filename . '.doc',
-        'pdf'   => '/assets/documents/' . $type . '/' . $filename . '.pdf'
+        'doc'   => file_exists($path . '/' . $type . '/' . $filename . '.doc') ? '/assets/documents/' . $type . '/' . $filename . '.doc' : '',
+        'pdf'   => file_exists($path . '/' . $type . '/' . $filename . '.pdf') ? '/assets/documents/' . $type . '/' . $filename . '.pdf' : ''
       ));
     }
 
