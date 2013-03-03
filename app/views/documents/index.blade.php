@@ -12,7 +12,7 @@
 </div>
 
 <div class="content-block">
-  <div class="title">Board Meeting Minutes</div>
+  <div class="title">Past Board Meeting Minutes</div>
 
   <ul>
 
