@@ -35,3 +35,15 @@ Route::get('/documents', 'DocumentsController@index');
 Route::get('/facebook', function() {
   return Redirect::to('https://www.facebook.com/pages/Indiana-Real-Estate-Exchangors/220020221382445', 303);
 });
+
+
+/**
+ * Handling application errors.
+ */
+
+// 404
+App::missing(function($exception)
+{
+    // Log::error('404 - ' . $exception)
+    return View::make('errors.four_oh_four');
+});
