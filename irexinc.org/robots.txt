@@ -6,8 +6,7 @@
 User-agent: Googlebot
 User-agent: Googlebot-Mobile
 Disallow: /login/
-Disallow: /assets/documents/*/*.doc
-Disallow: /assets/documents/*/*.pdf
+Disallow: /assets/documents/
 Allow: /
 Allow: /calendar/
 Allow: /members/
@@ -32,8 +31,7 @@ Disallow: /
 #
 User-agent: msnbot
 Disallow: /login/
-Disallow: /assets/documents/*/*.doc
-Disallow: /assets/documents/*/*.pdf
+Disallow: /assets/documents/
 Allow: /
 Allow: /calendar/
 Allow: /members/
@@ -42,8 +40,7 @@ Allow: /documents/
 
 User-agent: bingbot
 Disallow: /login/
-Disallow: /assets/documents/*/*.doc
-Disallow: /assets/documents/*/*.pdf
+Disallow: /assets/documents/
 Allow: /
 Allow: /calendar/
 Allow: /members/
@@ -59,8 +56,7 @@ Allow: /documents/
 #
 User-agent: Slurp
 Disallow: /login/
-Disallow: /assets/documents/*/*.doc
-Disallow: /assets/documents/*/*.pdf
+Disallow: /assets/documents/
 Allow: /
 Allow: /calendar/
 Allow: /members/
@@ -76,8 +72,7 @@ Allow: /documents/
 #
 User-agent: Teoma
 Disallow: /login/
-Disallow: /assets/documents/*/*.doc
-Disallow: /assets/documents/*/*.pdf
+Disallow: /assets/documents/
 Allow: /
 Allow: /calendar/
 Allow: /members/
