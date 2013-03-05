@@ -1,0 +1,37 @@
+/* Board Members */
+
+  Clint Fultz (President)
+  Location: Indianapolis, IN
+
+  Larry Oliver (Vice President)
+  Location: Indianapolis, IN
+
+  Mark Bowman (Treasurer)
+  Location: Trafalgar, IN
+
+  Lynn S. Fischer (Past President)
+  Location: Fishers, IN
+
+  Adam Browning
+  Location: Shelbyville, IN
+
+  Brian Hackman
+  Greenwood, IN
+
+  Rebecca Harpe
+  Avon, IN
+
+  Craig Heindel
+  Indianapolis, IN
+
+  Eric Hillenbrand
+  Indianapolis, IN
+
+  John Levinsohn
+  Indianapolis, IN
+
+/* Other */
+
+  Matt Emborsky (Webmaster)
+  Site: http://memborsky.github.com/
+  Location: Indianapolis, IN
