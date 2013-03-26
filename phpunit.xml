@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
-
- <url>
-  <loc>http://www.irexinc.org/</loc>
-  <changefreq>daily</changefreq>
-  <priority>1.000</priority>
- </url>
-
-  <url>
-  <loc>http://www.irexinc.org/members/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>1.000</priority>
- </url>
-
-  <url>
-  <loc>http://www.irexinc.org/calendar/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>1.000</priority>
- </url>
-
-  <url>
-  <loc>http://www.irexinc.org/by-laws/</loc>
-  <changefreq>yearly</changefreq>
-  <priority>0.2</priority>
- </url>
-
-  <url>
-  <loc>http://www.irexinc.org/documents/</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.5</priority>
- </url>
-</urlset>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+>
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>./app/tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
