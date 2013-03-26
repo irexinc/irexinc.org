@@ -2,16 +2,31 @@
 
 return array(
 
-  /*
-  |--------------------------------------------------------------------------
-  | SMTP Host Address
-  |--------------------------------------------------------------------------
-  |
-  | Here you may provide the host address of the SMTP server used by your
-  | applications. A default option is provided that is compatible with
-  | the Postmark mail service, which will provide reliable delivery.
-  |
-  */
+	/*
+	|--------------------------------------------------------------------------
+	| Mail Driver
+	|--------------------------------------------------------------------------
+	|
+	| Laravel supports both SMTP and PHP's "mail" function as drivers for the
+	| sending of e-mail. You may specify which one you're using throughout
+	| your application here. By default, Laravel is setup for SMTP mail.
+	|
+	| Supported: "smtp", "mail"
+	|
+	*/
+
+	'driver' => 'smtp',
+
+	/*
+	|--------------------------------------------------------------------------
+	| SMTP Host Address
+	|--------------------------------------------------------------------------
+	|
+	| Here you may provide the host address of the SMTP server used by your
+	| applications. A default option is provided that is compatible with
+	| the Postmark mail service, which will provide reliable delivery.
+	|
+	*/
 
   'host' => 'smtp.postmarkapp.com',
 
