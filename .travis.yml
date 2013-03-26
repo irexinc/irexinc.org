@@ -1,0 +1,22 @@
+---
+language: php
+
+php:
+- '5.3'
+- '5.4'
+
+branches:
+  - master
+  - testing
+
+before_script:
+- mysql -e 'create database irex_test;'
+- composer install
+- php artisan migrate:refresh --seed --env='testing'
+- php artisan optimize
+
+script: phpunit
+
+after_script:
+- php artisan migrate:rollback
+- mysql -e 'drop database irex_test;'
