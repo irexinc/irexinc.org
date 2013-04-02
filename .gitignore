@@ -5,3 +5,4 @@ app/config/production/
 vendor/
 .DS_Store
 logs/
+build/
