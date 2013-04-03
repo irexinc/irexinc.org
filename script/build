@@ -13,13 +13,17 @@ fi
 # Just in case.
 mkdir -p ./build/
 
+# Update ./vendor/ packages.
+composer update
+
 # This is our current sha for our HEAD.
 currentSha="$( git log | head -n 1 | awk '{ print $2 }' )"
 
 # No matter what, assume we have a previous sha.
 lastSha="`awk -F\# '{ print $2 }' <<< $(cat $0 | tail -n 1)`"
 
-# Remove the last sha from the end of the file and save it to a temp file.
+# Remove the last sha from the end of this file and save it to a tmp file to be
+# our new script.
 sed '$ d' ./script/build > ./script/build.tmp
 
 # What we want to archive.
@@ -32,7 +36,7 @@ then
     # Build the entire site from the current HEAD.
     "site" )
 
-      filename="./build/site_deploy-$currentSha"
+      filename="./build/site_deploy-$currentSha.zip"
 
       ;;
 
@@ -42,21 +46,21 @@ then
       if [ ! -z "$lastSha" ]
       then
 
-        filename="./build/site_update-$lastSha-$currentSha"
-        what="$what $(git diff $lastSha master --name-only)"
+        filename="./build/site_update-$lastSha-$currentSha.zip"
+
+        # This generates a file list for our diff only.
+        what="$(git diff $lastSha master --name-only)"
 
       else
 
         echo "Notice: Could not find a previous sha."
-        filename="./build/site_update-master"
+        filename="./build/site_update-master.zip"
 
       fi
       ;;
 
   esac
 
-  # Append .zip to the filename.
-  filename="$filename.zip"
 
   # Remove previous file if it exists.
   if [ -f $filename ]
@@ -64,28 +68,62 @@ then
     rm -f $filename
   fi
 
+
   # Actually do the archiving.
-  git archive --format=zip --prefix='/' $what -o $filename
+  if [ "$what" = "master" ]
+  then
 
-  # Since we are building from git archive, we need to include files that are
-  # excluded from git by .gitignore.
-  zip $filename -ur ./vendor/ ./composer.lock ./bootstrap/compiled.php ./app/config/production/ ./app/database/seeds/membersTableSeeder.php
+    # Zip the entire application.
+    zip $filename -r9 app LICENSE artisan composer.json composer.lock irexinc.org phpunit.xml readme.md server.php
 
-  # Remove unneeded files that would be included from the previous additions.
-  zip $filename -d \*.git/\* \*\*/.DS_Store \*\*/.gitkeep \*.gitignore ./app/storage/\*\*/\* ./script/ ./script/\* ./build/ ./build/\* ./logs/
+    # Manipulate the app/storage directory a little.
+    zip $filename -d app/storage/\*\*/\*
+    zip $filename -u app/storage/views app/storage/sessions app/storage/meta app/storage/logs app/storage/cache
 
-  # Readd the applications storage directories back to the zip.
-  zip $filename -u app/storage/views app/storage/sessions app/storage/meta app/storage/logs app/storage/cache
+  else
+
+    # Create the diff archive.
+    zip $filename -r9 $what
+
+  fi
+
+
+  # Setup the bootstrap/compiled.php with our production path.
+  sed 's/\/Users\/matt\/code\/irexinc.org/\/hsphere\/local\/home\/irexinc/g' ./bootstrap/compiled.php > ./bootstrap/compiled.php.new && mv ./bootstrap/compiled.php.new ./bootstrap/compiled.php
+
+
+  # We are always going to update the vendor folder section because we updated
+  # that directory at the start of this build.
+  zip $filename -ur vendor bootstrap
+
+  # Remove unneeded files from vendor directory.
+  zip $filename -d \*.git/\* \*\*/.DS_Store \*\*/.gitkeep \*.gitignore
+
+  # We don't need phpunit or symfony/yaml on production.
+  zip $filename -d vendor/phpunit/\* vendor/symfony/yaml/\*
+
+
+  # Reset the bootstrap/compiled script
+  sed 's/\/hsphere\/local\/home\/irexinc/\/Users\/matt\/code\/irexinc.org/g' ./bootstrap/compiled.php > ./bootstrap/compiled.php.new && mv ./bootstrap/compiled.php.new ./bootstrap/compiled.php
+
 
   # Save off the last commit sha for building just an udpate diff.
   echo -n "#$currentSha" >> ./script/build.tmp
 
+  # If we are wanting to deploy at the same time, lets handle it.
+  if [ ! -z "$2" ]
+  then
+    ./script/deploy "$2" "$filename"
+  fi
+
 else
-  printf 'Usage: build (site|diff).\n'
+
+  printf 'Usage: build (site|diff) [prod].\n'
+
 fi
 
 # Setup our new build script.
 rm -f ./script/build && mv ./script/build.tmp ./script/build && chmod 0755 ./script/build
 
 # Last Deployed sha (DO NOT DELETE):
-#e717ca458fad673cb45ab2e0390b93b80ce0c170
+#936041dfb90ba2d4ac647ca4357c03cd07c80046
