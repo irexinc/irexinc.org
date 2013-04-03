@@ -4,5 +4,7 @@ composer.lock
 app/config/production/
 vendor/
 .DS_Store
-app/database/seeds/MembersTableSeeder.php
 logs/
+build/
+script/lastSha
+script/deploy

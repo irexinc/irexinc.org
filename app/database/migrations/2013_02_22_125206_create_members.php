@@ -23,6 +23,7 @@ class CreateMembers extends Migration {
       $table->string('last_name', 50)->default(null);
 
       $table->text('company')->nullable();
+
       $table->string('city', 50)->nullable();
       $table->text('address')->nullable();
       $table->string('state', 2)->default('IN')->nullable();
