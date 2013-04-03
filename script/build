@@ -16,15 +16,13 @@ mkdir -p ./build/
 # Update ./vendor/ packages.
 composer update
 
+
 # This is our current sha for our HEAD.
 currentSha="$( git log | head -n 1 | awk '{ print $2 }' )"
 
 # No matter what, assume we have a previous sha.
-lastSha="`awk -F\# '{ print $2 }' <<< $(cat $0 | tail -n 1)`"
+lastSha="$(cat ./script/lastSha | tail -n 1)"
 
-# Remove the last sha from the end of this file and save it to a tmp file to be
-# our new script.
-sed '$ d' ./script/build > ./script/build.tmp
 
 # What we want to archive.
 what="master"
@@ -108,7 +106,7 @@ then
 
 
   # Save off the last commit sha for building just an udpate diff.
-  echo -n "#$currentSha" >> ./script/build.tmp
+  echo -n "\n$currentSha" >> ./script/lastSha
 
   # If we are wanting to deploy at the same time, lets handle it.
   if [ ! -z "$2" ]
@@ -121,9 +119,3 @@ else
   printf 'Usage: build (site|diff) [prod].\n'
 
 fi
-
-# Setup our new build script.
-rm -f ./script/build && mv ./script/build.tmp ./script/build && chmod 0755 ./script/build
-
-# Last Deployed sha (DO NOT DELETE):
-#936041dfb90ba2d4ac647ca4357c03cd07c80046
