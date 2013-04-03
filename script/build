@@ -106,7 +106,11 @@ then
 
 
   # Save off the last commit sha for building just an udpate diff.
-  echo -n "\n$currentSha" >> ./script/lastSha
+  if [ "$currentSha" != "$lastSha" ]
+  then
+    printf "\n$currentSha" >> ./script/lastSha
+  fi
+
 
   # If we are wanting to deploy at the same time, lets handle it.
   if [ ! -z "$2" ]
