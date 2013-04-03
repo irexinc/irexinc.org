@@ -3,19 +3,18 @@ language: php
 
 php:
 - '5.3'
+- '5.4'
 
 branches:
   only:
     - master
+    - testing
 
 before_script:
 - mysql -e 'create database irex_test;'
 - composer install
 - php artisan migrate --env='testing'
 - php artisan db:seed --env='testing'
-
-after_script:
-- mysql -e 'drop database irex_test;'
 
 notifications:
   email:
