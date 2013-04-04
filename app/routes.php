@@ -14,7 +14,7 @@
 Route::get('/', function() {
   // $meeting = select start_date as date from events where concat(curdate(), ' ', curtime()) < end_date and title = 'IREX Meeting' limit 1;
   $meeting = Events::where("end_date", ">", strftime("%F %T", time()))
-                   ->where('title', '=', 'IREX Meeting')
+                   ->where('title', 'like', '%IREX Meeting%')
                    ->take(1)
                    ->get(array("start_date"))
                    ->toArray();
