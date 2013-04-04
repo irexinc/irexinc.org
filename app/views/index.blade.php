@@ -9,7 +9,7 @@
     <div class="title">Welcome</div>
 
     <p>We meet the <u>Second (2nd) and Fourth (4th) Thursday</u> of the month. Meetings
-    will be located at the <a href="/calendar#knights-of-columbus">Knights of Columbus</a>.</p>
+    take place at the <a href="/calendar#knights-of-columbus">Knights of Columbus</a>.</p>
 
     <p>Networking starts around 8:45am and the meeting starts promptly at 9:00am.</p>
 
