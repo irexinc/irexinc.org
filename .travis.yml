@@ -8,7 +8,6 @@ php:
 branches:
   only:
     - master
-    - testing
 
 before_script:
 - mysql -e 'create database irex_test;'
@@ -19,3 +18,5 @@ before_script:
 notifications:
   email:
     - memborsky@gmail.com
+  on_success: never
+  on_failure: always
