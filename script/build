@@ -14,7 +14,7 @@ fi
 mkdir -p ./build/
 
 # Update ./vendor/ packages.
-composer update
+composer update --prefer-source --dev
 
 
 # This is our current sha for our HEAD.
