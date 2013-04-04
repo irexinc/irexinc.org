@@ -2,18 +2,19 @@
 language: php
 
 php:
-- '5.3'
-- '5.4'
+  - '5.3'
+  - '5.4'
 
 branches:
   only:
     - master
 
 before_script:
-- mysql -e 'create database irex_test;'
-- composer install
-- php artisan migrate --env='testing'
-- php artisan db:seed --env='testing'
+  - mysql -e 'create database irex_test;'
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --prefer-source --dev
+  - php artisan migrate --env='testing'
+  - php artisan db:seed --env='testing'
 
 notifications:
   email:
