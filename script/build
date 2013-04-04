@@ -72,16 +72,15 @@ then
   then
 
     # Zip the entire application.
-    zip $filename -r9 app LICENSE artisan composer.json composer.lock irexinc.org phpunit.xml readme.md server.php
+    zip $filename -r9 app LICENSE artisan composer.json composer.lock irexinc.org phpunit.xml readme.md server.php -x app/storage/\* \*.DS_Store
 
-    # Manipulate the app/storage directory a little.
-    zip $filename -d app/storage/\*\*/\*
+    # Add base storage folders so we can just "drag and drop" the entire site deploy without issue after copy.
     zip $filename -u app/storage/views app/storage/sessions app/storage/meta app/storage/logs app/storage/cache
 
   else
 
     # Create the diff archive.
-    zip $filename -r9 $what
+    zip $filename -r9 $what -x app/storage/\* .travis.yml \*.gitignore
 
   fi
 
@@ -92,13 +91,7 @@ then
 
   # We are always going to update the vendor folder section because we updated
   # that directory at the start of this build.
-  zip $filename -ur vendor bootstrap
-
-  # Remove unneeded files from vendor directory.
-  zip $filename -d \*.git/\* \*\*/.DS_Store \*\*/.gitkeep \*.gitignore
-
-  # We don't need phpunit or symfony/yaml on production.
-  zip $filename -d vendor/phpunit/\* vendor/symfony/yaml/\*
+  zip $filename -ur vendor bootstrap -x \*.git/\* \*.DS_Store \*.gitkeep \*.gitignore \*.gitattributes vendor/phpunit/\* vendor/symfony/yaml/\*
 
 
   # Reset the bootstrap/compiled script
