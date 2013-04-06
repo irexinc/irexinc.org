@@ -6,9 +6,10 @@ then
   exit
 fi
 
-FTP_USER = "user"
-FTP_PASS = "pass"
-FTP_HOST = "host"
+FTPUSER="user"
+FTPPASS="pass"
+FTPHOST="host"
+FILENAME="$(basename $2)"
 
 case "$1" in
   "production" | "prod" )
