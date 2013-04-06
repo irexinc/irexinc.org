@@ -15,19 +15,21 @@ case "$1" in
 
     # Perform the following operations:
     #
-    #   1.) Upload the zip for deployment.
-    #   2.) Delete the views cache.
-    #   3.) Delete the vendor file in prep for update.
+    #   1.) Clean the updates folder before we attempt to upload.
+    #   2.) Upload the zip.
+    #   3.) Delete the views cache.
 
     ftp -n $FTP_HOST <<SCRIPT
-quote USER $FTP_USER
-quote PASS $FTP_PASS
+quote USER $FTPUSER
+quote PASS $FTPPASS
 
-mkdir updates/
 cd updates/
-mput $2
+mdelete *
+a
 
-cd ../app/storage/views/
+cd ..
+put $2 updates/$FILENAME
+cd app/storage/views/
 mdelete *
 a
 
