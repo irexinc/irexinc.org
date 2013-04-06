@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ -z "$2" ]
+then
+  echo "Usage: deploy (prod) [filename of zip to deploy]"
+  exit
+fi
+
+FTP_USER = "user"
+FTP_PASS = "pass"
+FTP_HOST = "host"
+
+case "$1" in
+  "production" | "prod" )
+
+    # Perform the following operations:
+    #
+    #   1.) Upload the zip for deployment.
+    #   2.) Delete the views cache.
+    #   3.) Delete the vendor file in prep for update.
+
+    ftp -n $FTP_HOST <<SCRIPT
+quote USER $FTP_USER
+quote PASS $FTP_PASS
+
+mkdir updates/
+cd updates/
+mput $2
+
+cd ../app/storage/views/
+mdelete *
+a
+
+quit
+SCRIPT
+
+    ;;
+esac
