@@ -80,7 +80,7 @@ then
   else
 
     # Create the diff archive.
-    zip $filename -r9 $what -x app/storage/\* .travis.yml \*.gitignore
+    zip $filename -r9 $what -x app/storage/\* .travis.yml \*.gitignore script/\* build/\*
 
   fi
 
