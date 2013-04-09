@@ -2,6 +2,7 @@
 
 return array(
 
+
   /*
   |--------------------------------------------------------------------------
   | PDO Fetch Style
@@ -110,6 +111,8 @@ return array(
   */
 
   'redis' => array(
+
+    'cluster' => true,
 
     'default' => array(
       'host'     => '127.0.0.1',
