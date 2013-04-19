@@ -42,7 +42,7 @@ then
 else
   if [ -z "$(php composer.phar selfupdate >> $LOG_FILE)" ]
   then
-    success "Selfupdated composer.phar to the newest version."
+    success "Self updated composer.phar to the newest version."
   else
     fail "Failed to update compser.phar."
   fi
