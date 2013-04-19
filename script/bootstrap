@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# Bootstrap installs and setups stuff.
+
+set -e
+
+echo ''
+
+LOG_FILE="/tmp/irexinc-bootstrap"
+touch $LOG_FILE
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  echo 'See $LOG_FILE for more information'
+  exit
+}
+
+info "Getting the latest version of composer."
+if ! [ -f composer.phar ]
+then
+
+  if [ -z "$(curl -sS https://getcomposer.org/installer | php >> $LOG_FILE)" ]
+  then
+    success "Composer installed to composer.phar. Run with php composer.phar help for more information."
+  else
+    fail "Unable to download composer.phar"
+  fi
+
+else
+  if [ -z "$(php composer.phar selfupdate >> $LOG_FILE)" ]
+  then
+    success "Selfupdated composer.phar to the newest version."
+  else
+    fail "Failed to update compser.phar."
+  fi
+fi
+
+info "Install vendor packages."
+if [ -z "$(php composer.phar install --prefer-source --dev >> $LOG_FILE)" ]
+then
+  success "Installed vendor packages."
+else
+  fail "Failed to install vendor packages."
+fi
+
+
+# This should be where you send access and error logs from your development web server.
+mkdir -p logs
+
+
+# All done
+echo ''
+echo '  Rock On!'
