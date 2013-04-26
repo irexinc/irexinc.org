@@ -48,7 +48,7 @@ else
   fi
 fi
 
-info "Install vendor packages."
+info "Installing vendor packages."
 if [ -z "$(php composer.phar install --prefer-source --dev >> $LOG_FILE)" ]
 then
   success "Installed vendor packages."
