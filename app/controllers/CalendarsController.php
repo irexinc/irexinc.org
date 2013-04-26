@@ -1,6 +1,6 @@
 <?php
 
-class EventsController extends BaseController {
+class CalendarsController extends BaseController {
 
   public function index()
   {

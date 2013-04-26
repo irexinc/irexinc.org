@@ -83,4 +83,15 @@ class Events extends Eloquent {
 
     return $date;
   }
+
+  /**
+  * Gets the calendar id the event belongs too.
+  *
+  * @return int
+  */
+  public function calendar()
+  {
+    return $this->belongsTo('Calendars');
+  }
+
 }

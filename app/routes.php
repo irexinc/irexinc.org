@@ -26,7 +26,7 @@ Route::get('/', function() {
 
 Route::get('/members', 'MembersController@index');
 
-Route::get('/calendar', 'EventsController@index');
+Route::get('/calendar', 'CalendarsController@index');
 
 Route::get('/by-laws', function() { return View::make('by-laws'); });
 
