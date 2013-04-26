@@ -12,12 +12,7 @@
 */
 
 Route::get('/', function() {
-  // Grab the next meeting date from the events table where the calendar is the IREX Meetings calendar.
-  // Limit to only active events after the current date.
-  $meeting = Events::with(array('calendar' => function($query)
-                   {
-                     $query->where('title', '=', "IREX Meetings");
-                   }))
+  $meeting = Events::where('calendar_id', '=', 1)
                    ->where("end_date", ">", strftime("%F %T", time()))
                    ->where('active', '=', 1)
                    ->take(1)
