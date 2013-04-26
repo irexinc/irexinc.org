@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function() {
-  // $meeting = select start_date as date from events where concat(curdate(), ' ', curtime()) < end_date and title = 'IREX Meeting' limit 1;
-  $meeting = Events::where("end_date", ">", strftime("%F %T", time()))
-                   ->where('title', 'like', '%IREX Meeting%')
+  // Grab the next meeting date from the events table where the calendar is the IREX Meetings calendar.
+  // Limit to only active events after the current date.
+  $meeting = Events::with(array('calendar' => function($query)
+                   {
+                     $query->where('title', '=', "IREX Meetings");
+                   }))
+                   ->where("end_date", ">", strftime("%F %T", time()))
+                   ->where('active', '=', 1)
                    ->take(1)
                    ->get(array("start_date"))
                    ->toArray();
