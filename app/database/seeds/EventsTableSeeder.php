@@ -30,17 +30,17 @@ class EventsTableSeeder extends Seeder {
       array('calendar_id' => 1, 'active' => 1, 'start_date' => '2013-12-12 09:00:00', 'end_date' => '2013-12-12 12:00:00', 'title' => 'IREX Meeting - Holiday Party and Awards Luncheon', 'location' => 'Indianapolis, IN'),
 
       // Other Meetings/Events
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-01-20 00:00:00', 'end_date' => '2013-01-23 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Arizona'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-03-17 00:00:00', 'end_date' => '2013-03-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Kansas'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-04-28 00:00:00', 'end_date' => '2013-05-01 00:00:00', 'title' => 'KREE Derby City Marketing Session', 'location' => 'Louisville, KY'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'North Carolina'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'RECon (ICSC)', 'location' => 'Las Vegas, NV'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-06-13 00:00:00', 'end_date' => '2013-06-14 00:00:00', 'title' => 'Indiana Commercial Board Annual Conference', 'location' => 'JW Marriott', 'address' => '10 South West Street Indianapolis, IN 46204'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-07-21 00:00:00', 'end_date' => '2013-07-26 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Ohio'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-08-12 00:00:00', 'end_date' => '2013-08-13 00:00:00', 'title' => 'OCREA Marketing Session & Education', 'location' => 'Columbus, OH'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-09-15 00:00:00', 'end_date' => '2013-09-18 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Rhode Island'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-10-02 00:00:00', 'end_date' => '2013-10-03 00:00:00', 'title' => 'Chicago Deal Making (ICSC)', 'location' => 'Chicago, IL'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-11-17 00:00:00', 'end_date' => '2013-11-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'California'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-01-20 00:00:00', 'end_date' => '2013-01-23 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'Arizona'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-03-17 00:00:00', 'end_date' => '2013-03-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'Kansas'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-04-28 00:00:00', 'end_date' => '2013-05-01 00:00:00', 'title' => 'KREE Derby City Marketing Session', 'url' => 'http://kree.org', 'location' => 'Louisville, KY'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'North Carolina'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'RECon (ICSC)', 'url' => 'http://reconlasvegas.icsc.org/2013RECON/', 'location' => 'Las Vegas, NV'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-06-13 00:00:00', 'end_date' => '2013-06-14 00:00:00', 'title' => 'Indiana Commercial Board Annual Conference', 'url' => 'http://www.myicbr.org/education-events/annual-conference/', 'location' => 'JW Marriott', 'address' => '10 South West Street Indianapolis, IN 46204'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-07-21 00:00:00', 'end_date' => '2013-07-26 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'Ohio'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-08-12 00:00:00', 'end_date' => '2013-08-13 00:00:00', 'title' => 'OCREA Marketing Session & Education', 'url' => 'http://www.ocrea.org', 'location' => 'Columbus, OH'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-09-15 00:00:00', 'end_date' => '2013-09-18 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'Rhode Island'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-10-02 00:00:00', 'end_date' => '2013-10-03 00:00:00', 'title' => 'Chicago Deal Making (ICSC)', 'url' => 'http://www.icsc.org/events-and-programs/details/chicago-deal-making/', 'location' => 'Chicago, IL'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-11-17 00:00:00', 'end_date' => '2013-11-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'url' => 'http://www.secounselors.com', 'location' => 'California'),
     );
 
     foreach ($rows as $row) {

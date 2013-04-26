@@ -83,6 +83,17 @@ tr.out-of-state {
   color: #FF7200;
 }
 
+tr.out-of-state a {
+  border-bottom: 1px solid #FF7200;
+  color: #FF7200;
+  text-decoration: none;
+}
+
+tr.out-of-state a:hover {
+  color: #69c;
+  border-color: #69c;
+}
+
 td {
   border: 1px solid #5D5D5D;
   padding: 5px;
