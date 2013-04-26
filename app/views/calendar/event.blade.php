@@ -1,4 +1,9 @@
-<tr<?php echo $event->getOutOfState() ?>>
+
+@if (!$event->isIREX())
+<tr class="informational-meeting">
+@else
+<tr>
+@endif
   <td>{{ $event->getDate() }}</td>
 
   @if (trim($event->url) != "")

@@ -14,21 +14,14 @@ class Events extends Eloquent {
   *
   * @return boolean
   */
-  public function getOutOfState()
+  public function isIREX()
   {
-    if (strstr(strtolower($this->title), "irex") != false) {
-      return "";
+    if ($this->calendar_id == 1)
+    {
+      return true;
     }
 
-    if (!is_null($this->address)) {
-      $address = strtolower($this->address);
-
-      if (strstr($address, ", in") != false or strstr($address, ",in") != false) {
-        return "";
-      }
-    }
-
-    return " class=\"out-of-state\"";
+    return false;
   }
 
   /**

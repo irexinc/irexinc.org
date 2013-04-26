@@ -5,7 +5,7 @@
   <div class="title">2013 Meeting Schedule - Indiana Real Estate Exchangors, Inc.</div>
   <div class="sub-title">Normal Meeting Time is 9:00 AM to Noon</div>
 
-  <p class="note">Meetings listed in orange are for informational purposes only.</p>
+  <p class="informational-meeting">Meetings listed in orange are for informational purposes only.</p>
 
   <table>
     <tr class="header">
