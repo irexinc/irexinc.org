@@ -3,7 +3,7 @@
 # This script allows us to build the zip file for the entire site or just a diff
 # from the last time we deployed.
 
-set -x
+set -e
 
 echo ''
 
@@ -163,7 +163,7 @@ success "Built $filename successfully."
 
 
 info "Reseting vendor packages to development environment."
-if [ -z "$(php composer.phar install --prefer-source --dev >> $LOG_FILE)" ]
+if [ -z "$(php composer.phar update --prefer-source --dev >> $LOG_FILE)" ]
 then
   success "Reset vendor packages."
 else
