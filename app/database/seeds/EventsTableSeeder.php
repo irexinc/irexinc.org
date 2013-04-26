@@ -34,7 +34,7 @@ class EventsTableSeeder extends Seeder {
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-03-17 00:00:00', 'end_date' => '2013-03-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Kansas'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-04-28 00:00:00', 'end_date' => '2013-05-01 00:00:00', 'title' => 'KREE Derby City Marketing Session', 'location' => 'Louisville, KY'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'North Carolina'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'RECon (ICSC)', 'location' => 'Las Vegas'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-05-19 00:00:00', 'end_date' => '2013-05-22 00:00:00', 'title' => 'RECon (ICSC)', 'location' => 'Las Vegas, NV'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-06-13 00:00:00', 'end_date' => '2013-06-14 00:00:00', 'title' => 'Indiana Commercial Board Annual Conference', 'location' => 'JW Marriott', 'address' => '10 South West Street Indianapolis, IN 46204'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-07-21 00:00:00', 'end_date' => '2013-07-26 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Ohio'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-08-12 00:00:00', 'end_date' => '2013-08-13 00:00:00', 'title' => 'OCREA Marketing Session & Education', 'location' => 'Columbus, OH'),
