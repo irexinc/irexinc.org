@@ -39,7 +39,7 @@ class EventsTableSeeder extends Seeder {
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-07-21 00:00:00', 'end_date' => '2013-07-26 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Ohio'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-08-12 00:00:00', 'end_date' => '2013-08-13 00:00:00', 'title' => 'OCREA Marketing Session & Education', 'location' => 'Columbus, OH'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-09-15 00:00:00', 'end_date' => '2013-09-18 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'Rhode Island'),
-      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-10-02 00:00:00', 'end_date' => '2013-10-03 00:00:00', 'title' => 'Chicago Deal Making (ICSC)', 'location' => 'Chicago'),
+      array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-10-02 00:00:00', 'end_date' => '2013-10-03 00:00:00', 'title' => 'Chicago Deal Making (ICSC)', 'location' => 'Chicago, IL'),
       array('calendar_id' => 2, 'active' => 1, 'start_date' => '2013-11-17 00:00:00', 'end_date' => '2013-11-20 00:00:00', 'title' => 'Society of Exchange Counselors', 'location' => 'California'),
     );
 
