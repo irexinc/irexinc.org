@@ -10,16 +10,24 @@ echo ''
 LOG_FILE="/tmp/irexinc-build"
 touch $LOG_FILE
 
+log () {
+  echo '' >> $LOG_FILE
+  echo "== $1 ==" >> $LOG_FILE
+}
+
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
+  log "INFO: $1"
 }
 
 user () {
   printf "\r  [ \033[0;33m?\033[0m ] $1 "
+  log "USER: $1"
 }
 
 success () {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+  log "OK: $1"
 }
 
 fail () {
@@ -32,8 +40,8 @@ fail () {
 # Die if we are running from within the script directory.
 if [ "$(basename `pwd`)" == "script" ]
 then
-  echo "Please run from the root directory of the repository."
-  exit 0
+  echo "Please run from the root directory of the project."
+  exit
 fi
 
 # Die if we didn't get passed a parameter to the script
@@ -55,14 +63,10 @@ else
   fail "Failed to update composer.phar"
 fi
 
-
-info "Updating vendor packages."
-
-rm -rf vendor/ composer.lock > /dev/null
-
-if [ -z "$(php composer install --prefer-source --no-dev >> $LOG_FILE)" ]
+info "Readying the vendor packages for production."
+if [ -z "$(php composer.phar update --prefer-source --no-dev >> $LOG_FILE)" ]
 then
-  success "Updated vendor packages."
+  success "Vendor packages ready for production."
 else
   fail "Failed to update vendor packages."
 fi
@@ -158,8 +162,7 @@ fi
 success "Built $filename successfully."
 
 
-info "Reseting vendor packages to dev environment."
-rm -rf vendor composer.lock >> /dev/null
+info "Reseting vendor packages to development environment."
 if [ -z "$(php composer.phar install --prefer-source --dev >> $LOG_FILE)" ]
 then
   success "Reset vendor packages."
