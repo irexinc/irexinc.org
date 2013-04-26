@@ -14,7 +14,7 @@
       <td>Location</td>
     </tr>
 
-    @each('events.event', $events, 'event')
+    @each('calendar.event', $events, 'event')
 
   </table>
 </div>
