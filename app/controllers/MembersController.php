@@ -23,7 +23,7 @@ class MembersController extends BaseController {
       'regular' => Member::where('active', '=', true)->where('board', '=', false)->orderBy('last_name')->get(),
     );
 
-    return View::make('members.index')->with('members', $members);
+    return View::make('members.index')->with('members', $members)->with('title', $this->title("Members &middot; "));
   }
 
 }

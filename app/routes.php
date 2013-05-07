@@ -21,14 +21,14 @@ Route::get('/', function() {
 
   // $next_meeting = strftime("%B %d at %l %p", next_meeting_unix_timestamp)
   // -> Weekday, Month Day at Hour AM/PM
-  return View::make('index')->with('next_meeting', strftime("%A, %B %d at %l %p", strtotime($meeting[0]['start_date'])));
+  return View::make('index')->with('next_meeting', strftime("%A, %B %d at %l %p", strtotime($meeting[0]['start_date'])))->with('title', BaseController::title("Home &middot; "));
 });
 
 Route::get('/members', 'MembersController@index');
 
 Route::get('/calendar', 'CalendarsController@index');
 
-Route::get('/by-laws', function() { return View::make('by-laws'); });
+Route::get('/by-laws', function() { return View::make('by-laws')->with('title', BaseController::title("By-Laws &middot; ")); });
 
 Route::get('/documents', 'DocumentsController@index');
 

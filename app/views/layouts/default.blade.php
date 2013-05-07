@@ -5,7 +5,7 @@
     <meta name="author" content="Matt Emborsky <memborskygmail.com>" />
     <meta charset="utf-8" />
 
-    <title>Indiana Real Estate Exchangors, Inc.</title>
+    <title>{{ $title }}</title>
 
     <!-- B-E-A-UTIFUL -->
 

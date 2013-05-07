@@ -11,7 +11,8 @@ class DocumentsController extends BaseController {
   {
     return View::make( 'documents.index' )
                ->with( 'forms', Document::getForms() )
-               ->with( 'minutes', Document::getMinutes() );
+               ->with( 'minutes', Document::getMinutes() )
+               ->with( 'title', $this->title("Documents &middot; ") );
   }
 
 }

@@ -5,7 +5,7 @@
     <meta name="author" content="Matt Emborsky <memborskygmail.com>" />
     <meta charset="utf-8" />
 
-    <title>Indiana Real Estate Exchangors, Inc.</title>
+    <title>404 &middot; Indiana Real Estate Exchangors, Inc.</title>
 
     <style type="text/css">
       html {
