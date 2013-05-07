@@ -114,6 +114,8 @@ return array(
     'Illuminate\View\ViewServiceProvider',
     'Illuminate\Workbench\WorkbenchServiceProvider',
 
+    // Laravel 4 generator support provided by: https://github.com/JeffreyWay/Laravel-4-Generators
+    'Way\Generators\GeneratorsServiceProvider',
   ),
 
   /*
