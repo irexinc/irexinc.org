@@ -82,7 +82,7 @@ class Events extends Eloquent {
   *
   * @return string
   */
-  public static function getNextMeeting()
+  public function getNextMeeting()
   {
     $meeting = Events::where('calendar_id', '=', 1)
       ->where("end_date", ">", strftime("%F %T", time()))
