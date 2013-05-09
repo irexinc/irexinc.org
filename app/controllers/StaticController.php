@@ -9,16 +9,9 @@ class StaticController extends BaseController {
   */
   public function index ()
   {
-    $meeting = Events::where('calendar_id', '=', 1)
-      ->where("end_date", ">", strftime("%F %T", time()))
-      ->where('active', '=', 1)
-      ->take(1)
-      ->get(array("start_date"))
-      ->toArray();
+    $next_meeting = Events::getNextMeeting();
 
-    // $next_meeting = strftime("%B %e at %l %p", next_meeting_unix_timestamp)
-    // -> Weekday, Month Day at Hour AM/PM
-    return View::make('index')->with('next_meeting', strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date'])));
+    return View::make('index')->with(compact('next_meeting'));
   }
 
   /**

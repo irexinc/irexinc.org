@@ -78,6 +78,25 @@ class Events extends Eloquent {
   }
 
   /**
+  * Gets the next IREX meeting from the events table.
+  *
+  * @return string
+  */
+  public static function getNextMeeting()
+  {
+    $meeting = Events::where('calendar_id', '=', 1)
+      ->where("end_date", ">", strftime("%F %T", time()))
+      ->where('active', '=', 1)
+      ->take(1)
+      ->get(array("start_date"))
+      ->toArray();
+
+    // strftime("%B %e at %l %p", next_meeting_unix_timestamp)
+    // -> Weekday, Month Day at Hour AM/PM
+    return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
+  }
+
+  /**
   * Gets the calendar id the event belongs too.
   *
   * @return int
