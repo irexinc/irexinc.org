@@ -10,9 +10,9 @@ class StaticController extends BaseController {
   protected $events;
 
   /**
-  * Get our Events instance.
+  * Set our Events instance.
   *
-  * @param Static $static
+  * @param Events $events
   * @return void
   */
   public function __construct(Events $events)
