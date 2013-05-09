@@ -11,24 +11,13 @@
 |
 */
 
-Route::get('/', function() {
-  $meeting = Events::where('calendar_id', '=', 1)
-                   ->where("end_date", ">", strftime("%F %T", time()))
-                   ->where('active', '=', 1)
-                   ->take(1)
-                   ->get(array("start_date"))
-                   ->toArray();
-
-  // $next_meeting = strftime("%B %d at %l %p", next_meeting_unix_timestamp)
-  // -> Weekday, Month Day at Hour AM/PM
-  return View::make('index')->with('next_meeting', strftime("%A, %B %d at %l %p", strtotime($meeting[0]['start_date'])))->with('title', BaseController::title("Home &middot; "));
-});
+Route::get('/', 'StaticController@index');
 
 Route::get('/members', 'MembersController@index');
 
 Route::get('/calendar', 'CalendarsController@index');
 
-Route::get('/by-laws', function() { return View::make('by-laws')->with('title', BaseController::title("By-Laws &middot; ")); });
+Route::get('/by-laws', 'StaticController@by_laws');
 
 Route::get('/documents', 'DocumentsController@index');
 
