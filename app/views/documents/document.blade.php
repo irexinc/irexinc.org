@@ -1,1 +1,1 @@
-<li>{{ $document['title'] }} - <a href="{{ $document['doc'] }}">DOC</a> | <a href="{{ $document['pdf'] }}">PDF</a></li>
+<li><a href="{{ $document['doc'] }}">doc</a> | <a href="{{ $document['pdf'] }}">pdf</a> &raquo; {{ $document['title'] }}</li>
