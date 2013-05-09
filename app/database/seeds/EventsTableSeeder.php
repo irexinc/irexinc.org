@@ -28,7 +28,7 @@ class EventsTableSeeder extends Seeder {
       array( 'calendar_id' => 1, 'active' => 1, 'start_date' => '2013-10-24 09:00:00', 'end_date' => '2013-10-24 12:00:00', 'title' => 'IREX Meeting', 'location' => 'Indianapolis, IN', 'address' => null ),
       array( 'calendar_id' => 1, 'active' => 1, 'start_date' => '2013-11-14 09:00:00', 'end_date' => '2013-11-14 12:00:00', 'title' => 'IREX Meeting', 'location' => 'Indianapolis, IN', 'address' => null ),
       array( 'calendar_id' => 1, 'active' => 1, 'start_date' => '2013-12-12 09:00:00', 'end_date' => '2013-12-12 12:00:00', 'title' => 'IREX Meeting - Holiday Party and Awards Luncheon', 'location' => 'Indianapolis, IN', 'address' => null ),
-    ];
+    );
 
     DB::table('events')->insert($events);
 
