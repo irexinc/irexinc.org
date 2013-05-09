@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+Home &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
   <div class="content-block next-meeting">
     <div class="title">The next meeting is on {{ $next_meeting }}.</div>

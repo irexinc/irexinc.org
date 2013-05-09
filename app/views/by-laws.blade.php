@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+By-Laws &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
 <div class="content-block" id="table-of-contents">
   <div class="title">Table of Contents</div>

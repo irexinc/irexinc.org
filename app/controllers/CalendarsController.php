@@ -6,7 +6,7 @@ class CalendarsController extends BaseController {
   {
     $events = Events::with('calendar')->where('active', '=', 1)->orderBy('start_date')->orderBy('end_date')->get();
 
-    return View::make('calendar.index')->with('events', $events)->with('title', $this->title("Calendar &middot; "));
+    return View::make('calendar.index')->with('events', $events);
   }
 
 }

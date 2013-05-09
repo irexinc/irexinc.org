@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+Members &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
   <div class="content-block">
     <div class="title">Board Members</div>

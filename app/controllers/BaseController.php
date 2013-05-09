@@ -15,16 +15,4 @@ class BaseController extends Controller {
     }
   }
 
-
-  /**
-   * Create the page title.
-   *
-   * @return string
-   */
-  public static function title($title = null)
-  {
-    $base_title = "Indiana Real Estate Exchangors, Inc.";
-
-    return (isset($title) && $title == "") ? $base_title : $title . $base_title;
-  }
 }

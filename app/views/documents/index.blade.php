@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+Documents &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
 <div class="content-block">
   <div class="title">Forms</div>

@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+Calendar &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
 <div class="content-block">
   <div class="title">2013 Meeting Schedule - Indiana Real Estate Exchangors, Inc.</div>

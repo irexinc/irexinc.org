@@ -5,7 +5,11 @@
     <meta name="author" content="Matt Emborsky <memborskygmail.com>" />
     <meta charset="utf-8" />
 
-    <title>{{ $title }}</title>
+    <title>
+      @section('title')
+        Indiana Real Estate Exchangors, Inc.
+      @show
+    </title>
 
     <!-- B-E-A-UTIFUL -->
 
