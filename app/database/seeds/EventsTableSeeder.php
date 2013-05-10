@@ -45,7 +45,7 @@ class EventsTableSeeder extends Seeder {
 
     foreach ($events as $event)
     {
-      Event::create($event);
+      Events::create($event);
     }
   }
 }
