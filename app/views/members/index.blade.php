@@ -11,22 +11,23 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
     <table class="members">
       <?php $count = 0; ?>
 
-      @foreach ($members['board'] as $index => $member)
-        @if ($index % 3 == 0)
-          <tr>
+      @foreach ($members as $member)
+        @if ($count == 0)<tr>
+          <?php $count++; ?>
         @endif
 
-@include('members.member')
-
-        @if ($index % 3 == 2)
-          </tr>
+        @if ( $member->isBoardMember() )
+          @include('members.member')
+          <?php $count++; ?>
         @endif
 
-        <?php $count = $index; ?>
+        @if ($count == 4)</tr>
+          <?php $count = 0; ?>
+        @endif
       @endforeach
 
-      @if ($count % 3 != 2)
-        @for ($index = $count; ($index % 3 != 2); $index++)
+      @if ($count != 4)
+        @for ($index = $count; ($index <= 3); $index++)
           <td></td>
         @endfor
         </tr>
@@ -42,22 +43,25 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
     <table class="members">
       <?php $count = 0; ?>
 
-      @foreach ($members['regular'] as $index => $member)
-        @if ($index % 3 == 0)
+      @foreach ($members as $member)
+        @if ($count == 0)
           <tr>
+          <?php $count++; ?>
         @endif
 
-@include('members.member')
+        @if ( !$member->isBoardMember() )
+          @include('members.member')
+          <?php $count++; ?>
+        @endif
 
-        @if ($index % 3 == 2)
+        @if ($count == 4)
+          <?php $count = 0; ?>
           </tr>
         @endif
-
-        <?php $count = $index; ?>
       @endforeach
 
-      @if ($count % 3 != 2)
-        @for ($index = $count; ($index % 3 != 2); $index++)
+      @if ($count != 4)
+        @for ($index = $count; ($index <= 3); $index++)
           <td></td>
         @endfor
         </tr>
