@@ -10,6 +10,16 @@ class Member extends Eloquent {
   protected $table = 'members';
 
   /**
+  * Return an array of all our active members.
+  *
+  * @var object
+  */
+  public function getActiveMembers()
+  {
+    return $this->where('active', '=', true)->orderBy('board')->orderBy('last_name')->get();
+  }
+
+  /**
   * Is the member active?
   *
   * @return boolean
