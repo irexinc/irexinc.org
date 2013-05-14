@@ -60,7 +60,7 @@
 
             @section('navigation')
 
-              <li><a href="/">Home</a></li>
+              <li><a href="{{ URL::to('') }}/">Home</a></li>
               <li><a href="{{ URL::to('members') }}">Members</a></li>
               <li><a href="{{ URL::to('calendar') }}">Calendar</a></li>
               <li><a href="{{ URL::to('by-laws') }}">By-Laws</a></li>
