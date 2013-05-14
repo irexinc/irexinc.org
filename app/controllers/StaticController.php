@@ -29,7 +29,7 @@ class StaticController extends BaseController {
   {
     $next_meeting = $this->events->getNextMeeting();
 
-    return View::make('index')->with(compact('next_meeting'));
+    return View::make('static.index')->with(compact('next_meeting'));
   }
 
   /**
@@ -39,7 +39,7 @@ class StaticController extends BaseController {
   */
   public function by_laws ()
   {
-    return View::make('by-laws');
+    return View::make('static.by-laws');
   }
 
 }
