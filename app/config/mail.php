@@ -106,6 +106,7 @@ return array(
   |
   */
 
-  'sendmail' => '/usr/sbin/sendmail',
+  'sendmail' => '/usr/sbin/sendmail -sb',
+
 
 );
