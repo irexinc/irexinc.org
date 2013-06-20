@@ -22,10 +22,4 @@ Calendar &middot; Indiana Real Estate Exchangors, Inc.
 
   </table>
 </div>
-
-<!-- Google Maps -->
-<div id="knights-of-columbus" class="content-block">
-  <div class="title">Knights of Columbus</div>
-  <iframe src="https://maps.google.com/maps?hl=en&amp;q=1305+North+Delaware+Street,+Indianapolis,+IN&amp;z=11&amp;output=embed"></iframe>
-</div>
 @stop
