@@ -59,8 +59,8 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
         <tr>
           <td>Hugh Kennerk</td>
           <td>Kellie Taube</td>
-          <td></td>
-          <td></td>
+          <td>Larry Oliver</td>
+          <td>Gary Nicholson</td>
         </tr>
       </table>
 
