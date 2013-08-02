@@ -10,7 +10,7 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
   </div>
 
   <div class="content-block">
-    <div class="title">Ted Kleinmaier Testimonial</div>
+    <div class="title">Testimonial</div>
 
     <em>
       <p>Good afternoon,</p>
