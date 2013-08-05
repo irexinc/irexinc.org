@@ -140,17 +140,9 @@ else
 fi
 
 
-# Setup the bootstrap/compiled.php with our production path.
-sed 's/\/Users\/matt\/code\/irexinc.org/\/hsphere\/local\/home\/irexinc/g' bootstrap/compiled.php > bootstrap/compiled.php.new && mv bootstrap/compiled.php.new bootstrap/compiled.php
-
-
 # We are always going to update the vendor folder section because we updated
 # that directory at the start of this build.
 zip $filename -ur vendor bootstrap -x \*.git/\* \*.DS_Store \*.gitkeep \*.gitignore \*.gitattributes >> $LOG_FILE
-
-
-# Reset the bootstrap/compiled script
-sed 's/\/hsphere\/local\/home\/irexinc/\/Users\/matt\/code\/irexinc.org/g' bootstrap/compiled.php > bootstrap/compiled.php.new && mv bootstrap/compiled.php.new bootstrap/compiled.php
 
 
 # Save off the last commit sha for building just an udpate diff.
