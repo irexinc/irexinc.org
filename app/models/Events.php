@@ -91,9 +91,9 @@ class Events extends Eloquent {
       ->get()
       ->toArray();
 
-    $next_meeting_title = "";
+    $next_meeting = "";
 
-    if ( $meeting[0] != null )
+    if ( !empty($meeting) )
     {
 
       // We only have a single response, WTF Laravel for not just giving me that single array anymore.
@@ -139,13 +139,14 @@ class Events extends Eloquent {
 
       $next_meeting_title .= ". It will be located at the ";
 
-    }
 
-    $next_meeting = array(
-      "title" => $next_meeting_title,
-      "address" => $meeting['address'],
-      "location" => $meeting['location']
-    );
+      // Reorder our return variable.
+      $next_meeting = array(
+        "title" => $next_meeting_title,
+        "address" => $meeting['address'],
+        "location" => $meeting['location']
+      );
+    }
 
     // Return our data.
     return $next_meeting;
