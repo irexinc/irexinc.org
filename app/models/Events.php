@@ -88,12 +88,67 @@ class Events extends Eloquent {
       ->where("end_date", ">", strftime("%F %T", time()))
       ->where('active', '=', 1)
       ->take(1)
-      ->get(array("start_date"))
+      ->get()
       ->toArray();
 
-    // strftime("%B %e at %l %p", next_meeting_unix_timestamp)
-    // -> Weekday, Month Day at Hour AM/PM
-    return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
+    $next_meeting_title = "";
+
+    if ( $meeting[0] != null )
+    {
+
+      // We only have a single response, WTF Laravel for not just giving me that single array anymore.
+      $meeting = $meeting[0];
+
+
+      // The start of our returned $next_meeting_title string.
+      $next_meeting_title = "The ";
+
+      // Lets reset the title to what we want displayed on the website.
+      if ( $meeting['title'] == "IREX Meeting" )
+      {
+
+        $next_meeting_title .= "next meeting";
+
+      }
+      else
+      {
+
+        $title = substr($meeting['title'], 12);
+
+        $offset = 0;
+
+        while ( ! preg_match('/[A-Za-z]/', $title[$offset]) )
+        {
+          $offset++;
+        }
+
+        $next_meeting_title .= substr($title, $offset);
+
+      }
+
+      $next_meeting_title .= " is on ";
+
+      /**
+      **  Translates DATETIME to Long Date and Time format.
+      **
+      **  strftime("%B %e at %l %p", $next_meeting_title_unix_timestamp)
+      **  -> Weekday, Month Day at Hour AM/PM
+      **  return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
+      **/
+      $next_meeting_title .= strftime("%A, %B %e at %l %p", strtotime($meeting['start_date']));
+
+      $next_meeting_title .= ". It will be located at the ";
+
+    }
+
+    $next_meeting = array(
+      "title" => $next_meeting_title,
+      "address" => $meeting['address'],
+      "location" => $meeting['location']
+    );
+
+    // Return our data.
+    return $next_meeting;
   }
 
   /**

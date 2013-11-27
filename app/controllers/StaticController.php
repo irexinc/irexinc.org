@@ -21,18 +21,6 @@ class StaticController extends BaseController {
   }
 
   /**
-  * GET -> http://irexinc.org/
-  *
-  * @return View
-  */
-  public function index ()
-  {
-    $next_meeting = $this->events->getNextMeeting();
-
-    return View::make('static.index')->with(compact('next_meeting'));
-  }
-
-  /**
   * GET -> http://irexinc.org/by-laws
   *
   * @return view

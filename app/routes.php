@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'StaticController@index');
+Route::get('/', 'NewsController@index');
 
 Route::get('/members', 'MembersController@index');
 
