@@ -5,9 +5,11 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
 @stop
 
 @section('content')
+  @if (!empty($next_meeting))
   <div class="content-block next-meeting">
     <div class="title">{{ $next_meeting['title'] }} <a href="https://maps.google.com/maps?q={{ $next_meeting['address'] }}&z=12" target="_blank"> {{ $next_meeting['location'] }}</a>.</div>
   </div>
+  @endif
 
   <div class="content-block">
     <div class="title">Testimonial</div>
