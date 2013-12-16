@@ -34,9 +34,21 @@ class Events extends Eloquent {
     $start = strtotime($this->start_date);
     $end = strtotime($this->end_date);
 
+    $current_year = date('Y');
+
     // The event either only has a start date or it is all in the same month.
     // So we will only seed the date for this case.
-    $date = strftime("%B %-e", $start);
+    if (substr($this->start_date, 0, 4) == $current_year) {
+
+      // We are in the same year as the event.
+      $date = strftime("%B %-e", $start);
+
+    } else {
+
+      // The event occurs outside the current year.
+      $date = strftime("%B %-e, %Y", $start);
+
+    }
 
     // If we have an end date, lets figure out how to provide the correct date.
     if ($end != false) {
@@ -135,7 +147,17 @@ class Events extends Eloquent {
       **  -> Weekday, Month Day at Hour AM/PM
       **  return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
       **/
-      $next_meeting_title .= strftime("%A, %B %e at %l %p", strtotime($meeting['start_date']));
+      if ($meeting['start_date'] == date('Y')) {
+
+        // The next meeting is in this year.
+        $next_meeting_title .= strftime("%A, %B %e at %l %p", strtotime($meeting['start_date']));
+
+      } else {
+
+        // The next meeting is next year.
+        $next_meeting_title .= strftime("%A, %B %e, %Y at %l %p", strtotime($meeting['start_date']));
+
+      }
 
       $next_meeting_title .= ". It will be located at the ";
 
