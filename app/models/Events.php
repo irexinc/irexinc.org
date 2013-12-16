@@ -159,7 +159,7 @@ class Events extends Eloquent {
 
       }
 
-      $next_meeting_title .= ". It will be located at the ";
+      $next_meeting_title .= ".";
 
 
       // Reorder our return variable.

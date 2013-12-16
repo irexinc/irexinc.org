@@ -5,9 +5,22 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
 @stop
 
 @section('content')
-  @if (!empty($next_meeting))
+  @if ( !empty($next_meeting) )
   <div class="content-block next-meeting">
-    <div class="title">{{ $next_meeting['title'] }} <a href="https://maps.google.com/maps?q={{ $next_meeting['address'] }}&z=12" target="_blank"> {{ $next_meeting['location'] }}</a>.</div>
+    <div class="title">{{ $next_meeting['title'] }}
+
+      @if ( $next_meeting['location'] != "TBD" )
+
+        It will be located at
+
+        @if ( !empty($next_meeting['address']) )
+          <a href="https://maps.google.com/maps?q={{ $next_meeting['address'] }}&z=12" target="_blank"> {{ $next_meeting['location'] }}</a>.
+        @else
+          {{ $next_meeting['location'] }}.
+        @endif
+
+      @endif
+    </div>
   </div>
   @endif
 
