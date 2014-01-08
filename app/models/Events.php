@@ -157,11 +157,15 @@ class Events extends Eloquent {
 
       if ( !$canceled )
       {
+
         $next_meeting_title .= " is on ";
+
       }
       else
       {
+
         $next_meeting_title .= " on ";
+
       }
 
       /**
@@ -171,21 +175,15 @@ class Events extends Eloquent {
       **  -> Weekday, Month Day at Hour AM/PM
       **  return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
       **/
-      if ( $meeting['start_date'] == date('Y') ) {
+      $next_meeting_title .= strftime("%A, %B %e", strtotime($meeting['start_date']));
 
-        // The next meeting is in this year.
-        $next_meeting_title .= strftime("%A, %B %e at %l %p", strtotime($meeting['start_date']));
+      if ( !$canceled )
+      {
+
+        $next_meeting_title .= strftime(" at %l %p", strtotime($meeting['start_date']));
 
       }
       else
-      {
-
-        // The next meeting is next year.
-        $next_meeting_title .= strftime("%A, %B %e, %Y at %l %p", strtotime($meeting['start_date']));
-
-      }
-
-      if ( $canceled )
       {
 
         $next_meeting_title .= " has been canceled";
