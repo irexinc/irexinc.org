@@ -9,7 +9,7 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
   <div class="content-block next-meeting">
     <div class="title">{{ $next_meeting['title'] }}
 
-      @if ( $next_meeting['location'] != "TBD" )
+      @if ( !is_null($next_meeting['location']) && $next_meeting['location'] != "TBD" )
 
         It will be located at
 

@@ -1,6 +1,8 @@
 
 @if (!$event->isIREX())
 <tr class="informational-meeting">
+@elseif ($event->isCanceled())
+<tr class="canceled-meeting">
 @else
 <tr>
 @endif

@@ -66,6 +66,21 @@ tr.header {
   color: #FF7200;
 }
 
+.canceled-meeting {
+  color: #FF0033;
+}
+
+.canceled-meeting a {
+  border-bottom: none;
+  color: #2d2d2d;
+  text-decoration: none;
+}
+
+tr.canceled-meeting {
+  background-color: #FF0033;
+  color: #2d2d2d;
+}
+
 .informational-meeting a {
   border-bottom: 1px solid #69c;
   color: #69c;

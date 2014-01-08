@@ -25,6 +25,21 @@ class Events extends Eloquent {
   }
 
   /**
+  * Checks to see if the event has been flagged as canceled.
+  *
+  * @return boolean
+  */
+  public function isCanceled()
+  {
+    if ($this->canceled == 1)
+    {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
   * Get the events date in the proper format for displaying on the calendar page.
   *
   * @return string
@@ -111,6 +126,8 @@ class Events extends Eloquent {
       // We only have a single response, WTF Laravel for not just giving me that single array anymore.
       $meeting = $meeting[0];
 
+      // If our next meeting happens to be canceled, this lets us access that flag easier.
+      $canceled = $meeting['canceled'] == 1 ? true : false;
 
       // The start of our returned $next_meeting_title string.
       $next_meeting_title = "The ";
@@ -138,7 +155,14 @@ class Events extends Eloquent {
 
       }
 
-      $next_meeting_title .= " is on ";
+      if ( !$canceled )
+      {
+        $next_meeting_title .= " is on ";
+      }
+      else
+      {
+        $next_meeting_title .= " on ";
+      }
 
       /**
       **  Translates DATETIME to Long Date and Time format.
@@ -147,15 +171,24 @@ class Events extends Eloquent {
       **  -> Weekday, Month Day at Hour AM/PM
       **  return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
       **/
-      if ($meeting['start_date'] == date('Y')) {
+      if ( $meeting['start_date'] == date('Y') ) {
 
         // The next meeting is in this year.
         $next_meeting_title .= strftime("%A, %B %e at %l %p", strtotime($meeting['start_date']));
 
-      } else {
+      }
+      else
+      {
 
         // The next meeting is next year.
         $next_meeting_title .= strftime("%A, %B %e, %Y at %l %p", strtotime($meeting['start_date']));
+
+      }
+
+      if ( $canceled )
+      {
+
+        $next_meeting_title .= " has been canceled";
 
       }
 
@@ -168,6 +201,12 @@ class Events extends Eloquent {
         "address" => $meeting['address'],
         "location" => $meeting['location']
       );
+
+      if ( $canceled )
+      {
+        $next_meeting['location'] = null;
+        $next_meeting['address'] = null;
+      }
     }
 
     // Return our data.
