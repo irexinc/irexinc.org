@@ -14,7 +14,7 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
         It will be located at
 
         @if ( !empty($next_meeting['address']) )
-          <a href="https://maps.google.com/maps?q={{ $next_meeting['address'] }}&z=12" target="_blank"> {{ $next_meeting['location'] }}</a>.
+          <a href="https://maps.google.com/maps?q={{ $next_meeting['address'] }}&mp;z=12" target="_blank"> {{ $next_meeting['location'] }}</a>.
         @else
           {{ $next_meeting['location'] }}.
         @endif
@@ -135,7 +135,7 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
     <div class="title">Welcome</div>
 
     <p>We meet the <u>Second (2nd) and Fourth (4th) Thursday</u> of the month. Meetings
-    take place at <strong><a href="https://maps.google.com/maps?q=1912%20N.%20Meridian,%20Indianapolis,%20IN&z=12">MIBOR</a></strong>.</p>
+    take place at <strong><a href="https://maps.google.com/maps?q=1912%20N.%20Meridian,%20Indianapolis,%20IN&mp;z=12">MIBOR</a></strong>.</p>
 
     <p>Networking starts around 8:45am and the meeting starts promptly at 9:00am.</p>
 
