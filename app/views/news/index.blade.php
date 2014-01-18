@@ -27,7 +27,7 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
   <div class="content-block">
     <div class="title">Karen Lyles speaks January 23rd</div>
 
-    <p>We're pleased to welcome Karen Lyles from <a href="http://www.vectren.com">Vectren Corporation</a> to our meeting on <u>January 23rd</u>. Karen will be speaking about how to partner with Vectren to use energy wisely. Some of the topics that she will be discussing:</p>
+    <p>We are pleased to welcome Karen Lyles from <a href="http://www.vectren.com">Vectren Corporation</a> to our meeting on <u>January 23rd</u>. Karen will be speaking about how to partner with Vectren to use energy wisely. Some of the topics that she will be discussing:</p>
 
     <ul>
       <li>How to understand your natural gas and/or electric bill and how costs are determined</li>
