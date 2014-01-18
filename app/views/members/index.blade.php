@@ -30,7 +30,7 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
       @endforeach
 
       @if ($count > 0 and $count < 3)
-        @for ($index = $count; ($index <= 3); $index++)
+        @for ($index = $count; ($index < 3); $index++)
           <td></td>
         @endfor
         </tr>
@@ -64,7 +64,7 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
       @endforeach
 
       @if ($count > 0 and $count < 3)
-        @for ($index = $count; ($index <= 3); $index++)
+        @for ($index = $count; ($index < 3); $index++)
           <td></td>
         @endfor
         </tr>
