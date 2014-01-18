@@ -12,8 +12,9 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
       <?php $count = 0; ?>
 
       @foreach ($members as $member)
-        @if ($count == 0)<tr>
-          <?php $count++; ?>
+
+        @if ($count == 0)
+          <tr>
         @endif
 
         @if ( $member->isBoardMember() )
@@ -21,12 +22,14 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
           <?php $count++; ?>
         @endif
 
-        @if ($count == 4)</tr>
+        @if ($count == 3)
+          </tr>
           <?php $count = 0; ?>
         @endif
+
       @endforeach
 
-      @if ($count != 4)
+      @if ($count > 0 and $count < 3)
         @for ($index = $count; ($index <= 3); $index++)
           <td></td>
         @endfor
@@ -44,9 +47,9 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
       <?php $count = 0; ?>
 
       @foreach ($members as $member)
+
         @if ($count == 0)
           <tr>
-          <?php $count++; ?>
         @endif
 
         @if ( !$member->isBoardMember() )
@@ -54,13 +57,13 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
           <?php $count++; ?>
         @endif
 
-        @if ($count == 4)
+        @if ($count == 3)
           <?php $count = 0; ?>
           </tr>
         @endif
       @endforeach
 
-      @if ($count != 4)
+      @if ($count > 0 and $count < 3)
         @for ($index = $count; ($index <= 3); $index++)
           <td></td>
         @endfor
