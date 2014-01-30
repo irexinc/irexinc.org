@@ -24,8 +24,8 @@ img.center {
 }
 
 a {
-  border-bottom: 1px solid #69c;
-  color: #69c;
+  border-bottom: 1px solid #2e85b2;
+  color: #2e85b2;
   text-decoration: none;
 }
 
@@ -82,8 +82,8 @@ tr.canceled-meeting {
 }
 
 .informational-meeting a {
-  border-bottom: 1px solid #69c;
-  color: #69c;
+  border-bottom: 1px solid #2e85b2;
+  color: #2e85b2;
   text-decoration: none;
 }
 
