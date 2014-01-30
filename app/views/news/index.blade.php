@@ -25,6 +25,13 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
   @endif
 
   <div class="content-block">
+    <div class="title">Randie Dial speaks February 13th</div>
+
+    <p>We are pleased to welcome Randie Dial from <a href="http://www.cliftonlarsonallen.com">CliftonLarsonAllen</a> to our meeting on <u>February 13th</u>. Randie will be speaking about business valuations, transfer issues related to the new regulations.</p>
+
+  </div>
+
+  <div class="content-block">
     <div class="title">Welcome</div>
 
     <p>We meet the <u>Second (2nd) and Fourth (4th) Thursday</u> of the month. Meetings
