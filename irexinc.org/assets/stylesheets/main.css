@@ -1,16 +1,16 @@
-html {
+html, body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
   background-color: #90AB76;
   color: #2d2d2d;
   font-family: "Open Sans", sans-serif;
   height: 100%;
-  margin: 0 auto;
-  padding: 0;
+  text-rendering: optimizeLegibility;
   width: 100%;
-}
-
-body {
-  margin: 0 auto;
-  padding: 0;
+  font-size: 15px;
 }
 
 img {
@@ -35,6 +35,11 @@ b#failed {
 
 p.center {
   text-align: center;
+}
+
+h4 {
+  font-size: 20px;
+  display: block;
 }
 
 .by-laws h4 {
@@ -221,7 +226,7 @@ iframe {
 
 .content-block .title {
   border-bottom: 2px solid #90AB76;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
   left: -20px;
   margin-bottom: 5px;
@@ -238,23 +243,82 @@ iframe {
   position: relative;
 }
 
-.next-meeting {
-  background-color: #E05D6F;
-  border: none;
-  text-align: center;
-}
-
-.next-meeting .title {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
 .content-block p.map-title {
   font-size: 20px;
   font-weight: 800;
   position: relative;
   top: 20px;
+}
+
+.next-meeting {
+  overflow: hidden;
+  clear: both;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.next-meeting h4 {
+  /*font-size: 18px;*/
+  border-bottom: 1px dotted black;
+  text-align: center;
+}
+
+.next-meeting h4 a {
+  border-bottom: none;
+}
+
+.next-meeting .left {
+  float: left;
+  clear: both;
+  overflow: hidden;
+  /*width: 81.5%;*/
+}
+.next-meeting .next-meeting-container {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-right: 20px;
+}
+.next-meeting .next-meeting-container h4 {
+  margin-bottom: 15px;
+  display: block;
+}
+.next-meeting .next-meeting-container img {
+  height: 130px;
+  margin-left: 9px;
+  margin-bottom: 9px;
+  border-radius: 3px;
+}
+
+.next-meeting .right {
+  float: right;
+  width: 18%;
+  margin-left: 5px;
+}
+
+.next-meeting .right h4 {
+  margin-bottom: 12px;
+  display: block;
+}
+
+.next-meeting .right ul {
+  padding: 0;
+}
+.next-meeting .right li {
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+}
+.next-meeting .right li span {
+  display: block;
+  float: left;
+  width: 70px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.next-meeting .right li span::after {
+  content: "-";
 }
 
 #footer {
