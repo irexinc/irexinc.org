@@ -19,8 +19,13 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
         <p>Randie will be speaking about business valuations and transfer issues related to new regulations.</p>
       </div>
 
+      <!-- Next Meeting #2 -->
       <div class="next-meeting-container">
         <h4>February 27 at <a href="https://www.google.com/maps/preview/place/701+N.+Delaware+Street,+Indianapolis,+IN+46204" target="_blank">Central Christian Church</a>.</h4>
+
+        <p>We are pleased to have Dean Murphy, CCIM and Julie Lester from <a href="http://www.fairwaycommercial.com" target="_blank">Fairway Commercial Lending</a>.</p>
+        <p>They will be giving a review of their loan programs as they relate to commercial real estate.</p>
+        <p>Fairway Commercial Lending is a Commercial Mortgage Banking company with a focus in providing commercial real estate financing solutions for business owners and investors seeking to purchase or refinance commercial property.</p>
       </div>
     </div>
     <!-- End Meetings -->
