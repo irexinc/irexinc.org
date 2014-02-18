@@ -15,23 +15,6 @@ Home &middot; Indiana Real Estate Exchangors, Inc.
     </div>
     <!-- End Meetings -->
 
-<!--
-     <div class="right">
-      <div class="schedule">
-        <h4>Schedule</h4>
-
-        <ul>
-          <li><span>8:45am</span>Networking</li>
-          <li><span>9:00am</span>Meeting Starts</li>
-          <li><span>10:00am</span>Speaker(s)</li>
-          <li><span>11:00am</span>Meeting Ends</li>
-        </ul>
-
-        <p>Donuts and coffee will be served.</p>
-      </div>
-    </div>
--->
-
   </div>
 
 

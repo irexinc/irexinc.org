@@ -9,8 +9,6 @@ class NewsController extends BaseController {
   */
   protected $events;
 
-  // protected static $path = "./app/views/news/speakers/";
-
   /**
   * Set our Events instance.
   *
@@ -44,7 +42,6 @@ class NewsController extends BaseController {
     }
 
     return View::make('news.index')->with(compact('meetings'));
-    // return var_dump($next_meeting);
   }
 
 }
