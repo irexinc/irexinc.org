@@ -9,6 +9,8 @@ class NewsController extends BaseController {
   */
   protected $events;
 
+  // protected static $path = "./app/views/news/speakers/";
+
   /**
   * Set our Events instance.
   *
@@ -27,9 +29,21 @@ class NewsController extends BaseController {
   */
   public function index ()
   {
-    $next_meeting = $this->events->getNextMeeting();
+    $meetings = $this->events->getNextMeetings();
 
-    return View::make('news.index')->with(compact('next_meeting'));
+    // die(var_dump($meetings));
+
+    foreach ($meetings as $index => $meeting)
+    {
+      if (file_exists("./app/views/news/speakers/" . $meeting['date'] . ".blade.php"))
+      {
+        $meetings[$index]['speaker'] = View::make('news.speakers.' . $meeting['date']);
+      }
+
+      $meetings[$index]['date'] = strftime("%B %d", strtotime($meeting['date']));
+    }
+
+    return View::make('news.index')->with(compact('meetings'));
     // return var_dump($next_meeting);
   }
 

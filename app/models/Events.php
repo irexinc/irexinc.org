@@ -109,106 +109,36 @@ class Events extends Eloquent {
   *
   * @return string
   */
-  public function getNextMeeting()
+  public function getNextMeetings()
   {
-    $meeting = Events::where('calendar_id', '=', 1)
+    $meetings = Events::where('calendar_id', '=', 1)
       ->where("end_date", ">", strftime("%F %T", time()))
       ->where('active', '=', 1)
-      ->take(1)
+      ->take(2)
       ->get()
       ->toArray();
 
-    $next_meeting = "";
+    $next_meetings = array();
 
-    if ( !empty($meeting) )
+    if ( !empty($meetings) )
     {
 
-      // We only have a single response, WTF Laravel for not just giving me that single array anymore.
-      $meeting = $meeting[0];
-
-      // If our next meeting happens to be canceled, this lets us access that flag easier.
-      $canceled = $meeting['canceled'] == 1 ? true : false;
-
-      // The start of our returned $next_meeting_title string.
-      $next_meeting_title = "The ";
-
-      // Lets reset the title to what we want displayed on the website.
-      if ( $meeting['title'] == "IREX Meeting" )
+      // start_date, location, address, canceled
+      foreach ($meetings as $meeting)
       {
+        $next = array();
 
-        $next_meeting_title .= "next meeting";
+        $next['date']     = substr($meeting['start_date'], 0, 10);
+        $next['location'] = $meeting['location'];
+        $next['address']  = $meeting['address'];
+        $next['canceled'] = $meeting['canceled'] == 1 ? true : false;
 
-      }
-      else
-      {
-
-        $title = substr($meeting['title'], 12);
-
-        $offset = 0;
-
-        while ( ! preg_match('/[A-Za-z]/', $title[$offset]) )
-        {
-          $offset++;
-        }
-
-        $next_meeting_title .= substr($title, $offset);
-
-      }
-
-      if ( !$canceled )
-      {
-
-        $next_meeting_title .= " is on ";
-
-      }
-      else
-      {
-
-        $next_meeting_title .= " on ";
-
-      }
-
-      /**
-      **  Translates DATETIME to Long Date and Time format.
-      **
-      **  strftime("%B %e at %l %p", $next_meeting_title_unix_timestamp)
-      **  -> Weekday, Month Day at Hour AM/PM
-      **  return strftime("%A, %B %e at %l %p", strtotime($meeting[0]['start_date']));
-      **/
-      $next_meeting_title .= strftime("%A, %B %e", strtotime($meeting['start_date']));
-
-      if ( !$canceled )
-      {
-
-        $next_meeting_title .= strftime(" at %l %p", strtotime($meeting['start_date']));
-
-      }
-      else
-      {
-
-        $next_meeting_title .= " has been canceled";
-
-      }
-
-      $next_meeting_title .= ".";
-
-
-      // Reorder our return variable.
-      $next_meeting = array(
-        "title" => $next_meeting_title,
-        "address" => $meeting['address'],
-        "location" => $meeting['location']
-      );
-
-      if ( $canceled )
-      {
-        $next_meeting['location'] = null;
-        $next_meeting['address'] = null;
+        array_push($next_meetings, $next);
       }
     }
 
     // Return our data.
-    return $next_meeting;
+    return $next_meetings;
   }
 
   /**
