@@ -35,7 +35,7 @@ class NewsController extends BaseController {
 
     foreach ($meetings as $index => $meeting)
     {
-      if (file_exists("./app/views/news/speakers/" . $meeting['date'] . ".blade.php"))
+      if (file_exists(app_path() . "/views/news/speakers/" . $meeting['date'] . ".blade.php"))
       {
         $meetings[$index]['speaker'] = View::make('news.speakers.' . $meeting['date']);
       }
