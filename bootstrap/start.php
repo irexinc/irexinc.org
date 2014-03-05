@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
     'development' => array('black', 'winter'),
-    'production' => array('irexinc.org'),
+    'production' => array('irexinc.org', 'web.lumasis.net'),
     'test' => array('hooker')
 
 ));
