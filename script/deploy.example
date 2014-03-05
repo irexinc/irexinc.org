@@ -1,41 +1,10 @@
 #!/bin/bash
 
-if [ -z "$2" ]
-then
-  echo "Usage: deploy (prod) [filename of zip to deploy]"
-  exit
-fi
+FTPUSER="username"
+FTPPASS="password"
+FTPHOST="hostname"
 
-FTPUSER="user"
-FTPPASS="pass"
-FTPHOST="host"
-FILENAME="$(basename $2)"
-
-case "$1" in
-  "production" | "prod" )
-
-    # Perform the following operations:
-    #
-    #   1.) Clean the updates folder before we attempt to upload.
-    #   2.) Upload the zip.
-    #   3.) Delete the views cache.
-
-    ftp -n $FTP_HOST <<SCRIPT
-quote USER $FTPUSER
-quote PASS $FTPPASS
-
-cd updates/
-mdelete *
-a
-
-cd ..
-put $2 updates/$FILENAME
-cd app/storage/views/
-mdelete *
-a
-
-quit
-SCRIPT
-
-    ;;
-esac
+#
+# Update in a single command using the lftp tool.
+#
+lftp -e "mirror -R -x build/ -x .git/ -x logs/ -P 10" -u $FTPUSER,$FTPPASS $FTPHOST
