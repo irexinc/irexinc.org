@@ -65,6 +65,7 @@
               <li><a href="{{ URL::to('calendar') }}">Calendar</a></li>
               <li><a href="{{ URL::to('by-laws') }}">By-Laws</a></li>
               <li><a href="{{ URL::to('documents') }}">Documents</a></li>
+              <li><a href="http://irex.ncexchangors.com/">NCE</a></li>
 
             @show
 
