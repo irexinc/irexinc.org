@@ -12,7 +12,7 @@ branches:
 before_script:
   - mysql -e 'create database irex_test;'
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --prefer-source --dev
+  - php composer.phar install --prefer-source
   - php artisan migrate --env='testing'
   - php artisan db:seed --env='testing'
 
