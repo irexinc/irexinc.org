@@ -45,6 +45,10 @@ class Member extends Eloquent {
   * @var string
   */
   public function getName() {
+    if ($this->suffix != NULL) {
+      return trim($this->first_name . " " . $this->last_name . ", " . $this->suffix);
+    }
+
     return trim($this->first_name . " " . $this->last_name);
   }
 
