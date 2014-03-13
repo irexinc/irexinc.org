@@ -11,16 +11,14 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
     <table class="members">
       <?php $count = 0; ?>
 
-      @foreach ($members as $member)
+      @foreach ($members["board"] as $member)
 
         @if ($count == 0)
           <tr>
         @endif
 
-        @if ( $member->isBoardMember() )
-          @include('members.member')
-          <?php $count++; ?>
-        @endif
+        @include('members.member')
+        <?php $count++; ?>
 
         @if ($count == 3)
           </tr>
@@ -46,16 +44,14 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
     <table class="members">
       <?php $count = 0; ?>
 
-      @foreach ($members as $member)
+      @foreach ($members["regular"] as $member)
 
         @if ($count == 0)
           <tr>
         @endif
 
-        @if ( !$member->isBoardMember() )
-          @include('members.member')
-          <?php $count++; ?>
-        @endif
+        @include('members.member')
+        <?php $count++; ?>
 
         @if ($count == 3)
           <?php $count = 0; ?>

@@ -10,13 +10,23 @@ class Member extends Eloquent {
   protected $table = 'members';
 
   /**
-  * Return an array of all our active members.
+  * Return an array of all regular members.
   *
   * @var object
   */
-  public function getActiveMembers()
+  public function getRegularMembers()
   {
-    return $this->where('active', '=', true)->orderBy('board')->orderBy('last_name')->get();
+    return $this->where('active', '=', true)->where('board', '=', false)->orderBy('last_name')->get();
+  }
+
+  /**
+  * Return an array of all board members.
+  *
+  * @var object
+  */
+  public function getBoardMembers()
+  {
+    return $this->where('active', '=', true)->where('board', '=', true)->orderBy('last_name')->get();
   }
 
   /**

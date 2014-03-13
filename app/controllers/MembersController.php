@@ -36,7 +36,12 @@ class MembersController extends BaseController {
   */
   public function index ()
   {
-    return View::make('members.index')->with('members', $this->members->getActiveMembers());
+    $members = array(
+      "board"   => $this->members->getBoardMembers(),
+      "regular" => $this->members->getRegularMembers(),
+    );
+
+    return View::make('members.index')->with('members', $members);
   }
 
 }
