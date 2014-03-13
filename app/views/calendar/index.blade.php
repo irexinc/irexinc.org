@@ -12,7 +12,7 @@ Calendar &middot; Indiana Real Estate Exchangors, Inc.
   <p class="informational-meeting">Meetings listed in orange are for informational purposes only.</p>
   <p class="canceled-meeting">Meetings listed in red have been canceled.</p>
 
-  <table>
+  <table><!--BOOYAH-->
     <tr class="header">
       <td>Date</td>
       <td>Title</td>
