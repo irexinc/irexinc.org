@@ -105,7 +105,7 @@ class Events extends Eloquent {
   }
 
   /**
-  * Gets the next IREX meeting from the events table.
+  * Gets the next IREX meetings from the events table.
   *
   * @return string
   */

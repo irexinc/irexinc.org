@@ -3,21 +3,24 @@
 class NewsController extends BaseController {
 
   /**
-  * The events implementation.
+  * The model implementations.
   *
   * @var Static
   */
   protected $events;
+  protected $speakers;
 
   /**
-  * Set our Events instance.
+  * Set our model instances on construction.
   *
   * @param Events $events
+  * @param Speakers $speakers
   * @return void
   */
-  public function __construct(Events $events)
+  public function __construct(Events $events, Speakers $speakers)
   {
     $this->events = $events;
+    $this->speakers = $speakers;
   }
 
   /**
@@ -29,13 +32,13 @@ class NewsController extends BaseController {
   {
     $meetings = $this->events->getNextMeetings();
 
-    // die(var_dump($meetings));
-
     foreach ($meetings as $index => $meeting)
     {
-      if (file_exists(app_path() . "/views/news/speakers/" . $meeting['date'] . ".blade.php"))
+      $speaker = $this->speakers->getSpeakerView($meeting['date']);
+
+      if (!is_null($speaker))
       {
-        $meetings[$index]['speaker'] = View::make('news.speakers.' . $meeting['date']);
+        $meetings[$index]['speaker'] = View::make($speaker);
       }
 
       $meetings[$index]['date'] = strftime("%B %d", strtotime($meeting['date']));
