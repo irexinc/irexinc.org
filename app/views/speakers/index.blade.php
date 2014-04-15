@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('title')
+Past Speakers &middot; Indiana Real Estate Exchangors, Inc.
+@stop
+
 @section('content')
   @foreach ($speakers as $index => $speaker)
 
