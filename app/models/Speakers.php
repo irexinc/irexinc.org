@@ -42,7 +42,6 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
   */
   public function getSpeakerView($meetingDate)
   {
-    var_dump($this->speakersPath . "/" . $meetingDate . "_*.blade.php");
     $filename = $this->glob($this->speakersPath . "/" . $meetingDate . "_*.blade.php");
 
     if (!empty($filename))
