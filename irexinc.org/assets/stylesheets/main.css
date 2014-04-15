@@ -23,6 +23,12 @@ img.center {
   position: relative;
 }
 
+img.thumbnail {
+  height: 130px;
+  margin-left: 9px;
+  margin-bottom: 9px;
+}
+
 a {
   border-bottom: 1px solid #2e85b2;
   color: #2e85b2;
@@ -285,13 +291,6 @@ iframe {
   margin-bottom: 15px;
   display: block;
 }
-.next-meeting .next-meeting-container img {
-  height: 130px;
-  margin-left: 9px;
-  margin-bottom: 9px;
-  border-radius: 3px;
-}
-
 .next-meeting .right {
   float: right;
   width: 18%;
