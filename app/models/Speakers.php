@@ -16,7 +16,8 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
   */
   public function getAllSpeakers()
   {
-    $files = $this->files($this->speakersPath);
+    // Reverse this listing so we show the newest speakers first.
+    $files = array_reverse($this->files($this->speakersPath));
 
     $results = array();
 
