@@ -16,7 +16,7 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
   */
   public function getAllSpeakers()
   {
-    $files = $this->files($speakersPath);
+    $files = $this->files($this->speakersPath);
 
     $results = array();
 
