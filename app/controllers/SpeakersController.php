@@ -31,10 +31,6 @@ class SpeakersController extends BaseController {
   {
     $speakers = $this->speakers->getAllSpeakers();
 
-    foreach ($speakers as $index => $speaker) {
-      $speakers[$index]['view'] = View::make($speaker['view']);
-    }
-
     return View::make('speakers.index')->with('speakers', Paginator::make($speakers, count($speakers), 10));
   }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Speakers extends Illuminate\Filesystem\Filesystem {
+class Speakers {
 
   public $speakersPath;
 
@@ -17,7 +17,7 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
   public function getAllSpeakers()
   {
     // Reverse this listing so we show the newest speakers first.
-    $files = array_reverse($this->files($this->speakersPath));
+    $files = array_reverse(File::files($this->speakersPath));
 
     $results = array();
 
@@ -27,7 +27,7 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
 
       $results[] = array(
         'file' => $file,
-        'view' => 'speakers.details.' . $filename,
+        'view' => View::make('speakers.details.' . $filename),
         'date' => strftime("%B %e, %Y", strtotime($parts[0])),
         'name' => str_replace('-', ' ', $parts[1]),
       );
@@ -37,17 +37,17 @@ class Speakers extends Illuminate\Filesystem\Filesystem {
   }
 
   /**
-  * Return the speaker 'view' name for the front page news.
+  * Return the speaker view.
   *
   * @return array of 2 speakers if they exist.
   */
   public function getSpeakerView($meetingDate)
   {
-    $filename = $this->glob($this->speakersPath . "/" . $meetingDate . "_*.blade.php");
+    $filename = File::glob($this->speakersPath . "/" . $meetingDate . "_*.blade.php");
 
     if (!empty($filename))
     {
-      return 'speakers.details.' . basename(array_shift($filename), ".blade.php");
+      return View::make('speakers.details.' . basename(array_shift($filename), ".blade.php"));
     }
 
     return null;
