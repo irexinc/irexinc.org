@@ -9,13 +9,15 @@ Past Speakers &middot; Indiana Real Estate Exchangors, Inc.
 
     <div class="content-block">
       <div class="title">{{ $speaker['date'] }} - {{ $speaker['name'] }}</div>
-      {{ $speaker['view'] }}
-    @if ($index == 11)
-      <?php echo $speakers->links(); ?>
-      </div>
-    @else
-      </div>
-    @endif
+
+      @include($speaker['view'])
+
+      @if ($index == 11)
+        <?php echo $speakers->links(); ?>
+        </div>
+      @else
+        </div>
+      @endif
 
   @endforeach
 

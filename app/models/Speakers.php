@@ -27,7 +27,7 @@ class Speakers {
 
       $results[] = array(
         'file' => $file,
-        'view' => View::make('speakers.details.' . $filename),
+        'view' => 'speakers.details.' . $filename,
         'date' => strftime("%B %e, %Y", strtotime($parts[0])),
         'name' => str_replace('-', ' ', $parts[1]),
       );
@@ -47,7 +47,7 @@ class Speakers {
 
     if (!empty($filename))
     {
-      return View::make('speakers.details.' . basename(array_shift($filename), ".blade.php"));
+      return 'speakers.details.' . basename(array_shift($filename), ".blade.php");
     }
 
     return null;
