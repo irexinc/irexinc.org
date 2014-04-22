@@ -1,4 +1,4 @@
-<a class="fancybox" href="assets/images/new31.jpg" target="_blank"><img src="assets/images/new31.jpg" alt="New US 31 Hamilton County" class="thumbnail" align="right" height="130px" width="52px" /></a>
+<a class="fancybox" href="assets/images/new31-big.jpg" target="_blank"><img src="assets/images/new31-small.jpg" alt="New US 31 Hamilton County" class="thumbnail" align="right" height="130px" width="52px" /></a>
 
 <p>Coming to us from <a href="http://chacompanies.com" target="_blank">CHA Companies</a> is Jason Rowley, a consultant working for <a href="http://www.in.gov/indot/" target="_blank">INDOT</a>'s <a href="http://us31hamiltoncounty.in.gov" target="_blank">New US 31</a> road project in Hamilton County. Joining Jason is Michelle Kearns from <a href="http://www.empowerresults.com">Empower Results</a>.</p>
 
