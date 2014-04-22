@@ -25,8 +25,12 @@ git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST
 lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
 set mirror:use-pget-n 5
 
-mirror -R -X * -I vendor/
-mrm app/storage/*/*
+mirror -R vendor/ vendor/
+put composer.phar
+put composer.lock
+put composer.json
+
+mrm -r app/storage/*/*
 
 quit
 EOF
