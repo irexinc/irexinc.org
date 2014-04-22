@@ -29,22 +29,6 @@
 
     @show
 
-    <!-- SPARKLES -->
-
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-    @section('javascript')
-      <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
-
-      <!-- Set the active navigation item. -->
-      <script>
-        $(document).ready(function() {
-            $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
-        });
-      </script>
-
-    @show
-
   </head>
 
   <body>
@@ -93,6 +77,22 @@
         s.parentNode.insertBefore(t, s);
       })();
     </script>
+
+    <!-- SPARKLES -->
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    @section('javascript')
+      <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+
+      <!-- Set the active navigation item. -->
+      <script>
+        $(document).ready(function() {
+            $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
+        });
+      </script>
+
+    @show
 
   </body>
 </html>
