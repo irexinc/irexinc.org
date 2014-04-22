@@ -66,20 +66,6 @@
       &nbsp;
     </div>
 
-    <script type="text/javascript">
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '511e675ef5a1f51137000008');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
-
     <!-- SPARKLES -->
 
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -94,18 +80,32 @@
             $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
 
             $(".fancybox").fancybox({
-            	openEffect : 'none',
-            	closeEffect	: 'none',
-            	helpers : {
-            		title : {
-            			type : 'outside'
-            		}
-            	}
+              openEffect : 'none',
+              closeEffect	: 'none',
+              helpers : {
+                title : {
+                  type : 'outside'
+                }
+              }
             });
         });
       </script>
 
     @show
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '511e675ef5a1f51137000008');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
 
   </body>
 </html>
