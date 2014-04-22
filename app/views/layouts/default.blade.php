@@ -92,6 +92,16 @@
       <script>
         $(document).ready(function() {
             $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
+
+            $(".fancybox").fancybox({
+            	openEffect : 'none',
+            	closeEffect	: 'none',
+            	helpers : {
+            		title : {
+            			type : 'outside'
+            		}
+            	}
+            });
         });
       </script>
 
