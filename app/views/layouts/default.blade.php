@@ -60,7 +60,7 @@
 
       @yield('content')
 
-      <div id="footer">Copyright &copy; 1989 - 2014 &mdash; Indiana Real Estate Exchangors, Inc.</div>
+      <div id="footer">Copyright &copy; 1989 - {{{ date("Y") }}} &mdash; Indiana Real Estate Exchangors, Inc.</div>
       &nbsp;
     </div>
 
