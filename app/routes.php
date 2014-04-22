@@ -16,6 +16,7 @@ Route::get('/', 'NewsController@index');
 Route::get('/members', 'MembersController@index');
 
 Route::get('/calendar', 'CalendarsController@index');
+Route::get('/calendar/download', 'CalendarsController@download');
 
 Route::get('/speakers', 'SpeakersController@index');
 
