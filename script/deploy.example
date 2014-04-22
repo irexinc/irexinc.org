@@ -5,6 +5,33 @@ FTPPASS="password"
 FTPHOST="hostname"
 
 #
-# Update in a single command using the lftp tool.
+# Make sure our vendor directory is updated to exclude no dev packages.
 #
-lftp -e "mirror -R -x build/ -x .git/ -x logs/ -P 10" -u $FTPUSER,$FTPPASS $FTPHOST
+php composer.phar selfupdate
+php composer.phar update --no-dev
+
+#
+# Update the site with git-ftp.
+#
+# https://github.com/git-ftp/git-ftp
+#
+git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST
+
+#
+# Use lftp to update vendor and remove 'cache'.
+#
+# http://lftp.yar.ru/
+#
+lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
+set mirror:use-pget-n 5
+
+mirror -R -X * -I vendor/
+mrm app/storage/*/*
+
+quit
+EOF
+
+#
+# Make sure we revert our vendor stack back to dev
+#
+php composer.phar update --dev
