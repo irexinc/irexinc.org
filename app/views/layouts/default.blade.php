@@ -37,7 +37,7 @@
     <div id="content-wrapper">
       <div id="header">
         <div id="banner">
-          <img src="/assets/images/banner.png" alt="Indiana Real Estate Exchangors, Inc." />
+          <img src="/assets/images/banner.png" alt="Indiana Real Estate Exchangors, Inc." width="1000px" height="317px" />
           <h1>Indiana Real Estate Exchangors, Inc.</h1>
         </div>
 

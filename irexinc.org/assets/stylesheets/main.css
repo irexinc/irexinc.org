@@ -24,7 +24,6 @@ img.center {
 }
 
 img.thumbnail {
-  height: 130px;
   margin-left: 9px;
   margin-bottom: 9px;
 }
@@ -165,17 +164,15 @@ iframe {
   background-color: #FFF;
   -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
   box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
-  height: 430px;
+  height: 410px;
   margin-top: 15px;
   padding-bottom: 10px;
   position: relative;
 }
 
 #header #banner img {
-  height: 328px;
   margin: 10px 0 0 10px;
   padding-bottom: 60px;
-  width: 1000px;
 }
 
 #header #banner h1 {
