@@ -3,26 +3,69 @@
 FTPUSER="username"
 FTPPASS="password"
 FTPHOST="hostname"
+OUTPUT=/tmp/$FTPHOST-deploy
+
+echo ''
+echo '' > $OUTPUT
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  echo "See $OUTPUT for more information."
+  exit
+}
 
 #
 # Make sure our vendor directory is updated to exclude no dev packages.
 #
-php composer.phar selfupdate
-php composer.phar update --no-dev
+info 'updating composer'
+if [[ php composer.phar selfupdate >> $OUTPUT 2>&1 ]]
+then
+  success 'updated composer'
+else
+  fail 'updating composer'
+fi
+
+info 'updating composer packages excluding dev'
+if [[ php composer.phar update --no-dev >> $OUTPUT 2>&1 ]]
+then
+  success 'updated composer packages'
+else
+  fail 'updating composer packages'
+fi
 
 #
 # Update the site with git-ftp.
 #
 # https://github.com/git-ftp/git-ftp
 #
-git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST
+info 'updating site content'
+if [[ git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST >> $OUTPUT 2>&1 ]]
+then
+  success 'updated site content'
+else
+  fail 'updating site content'
+fi
 
 #
 # Use lftp to update vendor and remove 'cache'.
 #
 # http://lftp.yar.ru/
 #
-lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
+info 'updating vendor cache on remote server'
+if [[ lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
 set mirror:use-pget-n 5
 
 mirror -R vendor/ vendor/
@@ -33,9 +76,20 @@ put composer.json
 mrm -r app/storage/*/*
 
 quit
-EOF
+EOF ]]
+then
+  success 'updated vendor cache'
+else
+  fail 'updating vendor cache'
+fi
 
 #
 # Make sure we revert our vendor stack back to dev
 #
-php composer.phar update --dev
+info 'reverting to our dev environment'
+if [[ php composer.phar update --dev ]]
+then
+  success 'dev reverted'
+else
+  fail 'dev not reverted'
+fi
