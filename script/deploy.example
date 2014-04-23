@@ -44,12 +44,8 @@ success 'updated composer packages'
 # https://github.com/git-ftp/git-ftp
 #
 info 'updating site content'
-if [[ $(git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST >> $OUTPUT 2>&1) ]]
-then
-  success 'updated site content'
-else
-  fail 'updating site content'
-fi
+git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST >> $OUTPUT 2>&1
+success 'updated site content'
 
 #
 # Use lftp to update vendor and remove 'cache'.
