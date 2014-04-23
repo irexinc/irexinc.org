@@ -25,12 +25,16 @@ class Speakers {
       $filename = basename($file, ".blade.php");
       $parts = explode('_', $filename);
 
-      $results[] = array(
-        'file' => $file,
-        'view' => 'speakers.details.' . $filename,
-        'date' => strftime("%B %e, %Y", strtotime($parts[0])),
-        'name' => str_replace('-', ' ', $parts[1]),
-      );
+      // Only include speakers from the past.
+      if (strtotime($parts[0]) < time())
+      {
+        $results[] = array(
+          'file' => $file,
+          'view' => 'speakers.details.' . $filename,
+          'date' => strftime("%B %e, %Y", strtotime($parts[0])),
+          'name' => str_replace('-', ' ', $parts[1]),
+        );
+      }
     }
 
     return $results;
