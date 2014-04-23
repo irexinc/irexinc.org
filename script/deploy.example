@@ -44,7 +44,7 @@ success 'updated composer packages'
 # https://github.com/git-ftp/git-ftp
 #
 info 'updating site content'
-if [[ git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST >> $OUTPUT 2>&1 ]]
+if [[ $(git ftp push -u $FTPUSER -p $FTPPASS - $FTPHOST >> $OUTPUT 2>&1) ]]
 then
   success 'updated site content'
 else
@@ -57,7 +57,7 @@ fi
 # http://lftp.yar.ru/
 #
 info 'updating vendor cache on remote server'
-if [[ lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
+if [[ $(lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
 set mirror:use-pget-n 5
 
 mirror -R vendor/ vendor/
@@ -68,7 +68,7 @@ put composer.json
 mrm -r app/storage/*/*
 
 quit
-EOF ]]
+EOF >> $OUTPUT 2>&1) ]]
 then
   success 'updated vendor cache'
 else
