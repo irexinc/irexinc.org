@@ -53,7 +53,7 @@ success 'updated site content'
 # http://lftp.yar.ru/
 #
 info 'updating vendor cache on remote server'
-if [[ $(lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
+lftp -u $FTPUSER,$FTPPASS $FTPHOST << EOF
 set mirror:use-pget-n 5
 
 mirror -R vendor/ vendor/
@@ -64,13 +64,8 @@ put composer.json
 mrm -r app/storage/*/*
 
 quit
-EOF >> $OUTPUT 2>&1) ]]
-then
-  success 'updated vendor cache'
-else
-  fail 'updating vendor cache'
-fi
-
+EOF >> $OUTPUT 2>&1
+success 'updated vendor cache'
 #
 # Make sure we revert our vendor stack back to dev
 #
