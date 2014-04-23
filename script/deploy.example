@@ -31,20 +31,12 @@ fail () {
 # Make sure our vendor directory is updated to exclude no dev packages.
 #
 info 'updating composer'
-if [[ php composer.phar selfupdate >> $OUTPUT 2>&1 ]]
-then
-  success 'updated composer'
-else
-  fail 'updating composer'
-fi
+php composer.phar selfupdate >> $OUTPUT 2>&1
+success 'updated composer'
 
 info 'updating composer packages excluding dev'
-if [[ php composer.phar update --no-dev >> $OUTPUT 2>&1 ]]
-then
-  success 'updated composer packages'
-else
-  fail 'updating composer packages'
-fi
+php composer.phar update --no-dev >> $OUTPUT 2>&1
+success 'updated composer packages'
 
 #
 # Update the site with git-ftp.
@@ -87,9 +79,5 @@ fi
 # Make sure we revert our vendor stack back to dev
 #
 info 'reverting to our dev environment'
-if [[ php composer.phar update --dev ]]
-then
-  success 'dev reverted'
-else
-  fail 'dev not reverted'
-fi
+php composer.phar update --dev >> $OUTPUT 2>&1
+success 'dev reverted'
