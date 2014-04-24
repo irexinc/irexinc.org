@@ -23,10 +23,13 @@ class Speakers {
 
     foreach ($files as $file) {
       $filename = basename($file, ".blade.php");
+
+      // $parts[0] = date of speaker
+      // $parts[1] = title
       $parts = explode('_', $filename);
 
       // Only include speakers from the past.
-      if (strtotime($parts[0]) < time())
+      if (strtotime($parts[0]) <= time())
       {
         $results[] = array(
           'file' => $file,
