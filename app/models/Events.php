@@ -115,8 +115,7 @@ class Events extends Eloquent {
       ->where("end_date", ">", strftime("%F %T", time()))
       ->where('active', '=', 1)
       ->take(2)
-      ->get()
-      ->toArray();
+      ->get(array('start_date', 'location', 'address', 'canceled'));
 
     $next_meetings = array();
 
@@ -128,10 +127,10 @@ class Events extends Eloquent {
       {
         $next = array();
 
-        $next['date']     = substr($meeting['start_date'], 0, 10);
-        $next['location'] = $meeting['location'];
-        $next['address']  = $meeting['address'];
-        $next['canceled'] = $meeting['canceled'] == 1 ? true : false;
+        $next['date']     = substr($meeting->start_date, 0, 10);
+        $next['location'] = $meeting->location;
+        $next['address']  = $meeting->address;
+        $next['canceled'] = $meeting->canceled == 1 ? true : false;
 
         array_push($next_meetings, $next);
       }
