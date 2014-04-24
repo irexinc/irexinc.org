@@ -77,7 +77,7 @@
       <!-- Set the active navigation item. -->
       <script>
         $(document).ready(function() {
-            $('#nav a[href$="' + location.toString().substring(("http://" + location.hostname).length) + '"]').addClass("active");;
+            $('#nav a[href$="' + location.toString() + '"]').addClass("active");;
 
             $(".fancybox").fancybox({
               openEffect : 'none',
