@@ -199,7 +199,7 @@ iframe {
   border-bottom: none;
 }
 
-#header #nav a.active {
+#header #nav a.is-selected {
   border-bottom: 1px solid #2d2d2d;
 }
 
