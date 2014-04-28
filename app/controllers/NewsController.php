@@ -34,8 +34,8 @@ class NewsController extends BaseController {
 
     foreach ($meetings as $index => $meeting)
     {
-      $meetings[$index]['speaker'] = $this->speakers->getSpeakerView($meeting['date']);
-      $meetings[$index]['date'] = strftime("%B %d", strtotime($meeting['date']));
+      $meetings[$index]['speaker'] = $this->speakers->getSpeakerView(substr($meeting['date'], 0, 10));
+      $meetings[$index]['date'] = date("F jS", strtotime($meeting['date']));
     }
 
     return View::make('news.index')->with(compact('meetings'));
