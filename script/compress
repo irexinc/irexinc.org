@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yuicompressor --type=css -o ./irexinc.org/assets/stylesheets/main-min.css ./irexinc.org/assets/stylesheets/main.css
