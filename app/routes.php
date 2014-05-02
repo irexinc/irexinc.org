@@ -20,7 +20,7 @@ Route::get('/calendar/download', 'CalendarsController@download');
 
 Route::get('/speakers', 'SpeakersController@index');
 
-Route::get('/by-laws', 'StaticController@by_laws');
+Route::get('/by-laws', 'AboutUsController@by_laws');
 
 Route::get('/documents', 'DocumentsController@index');
 

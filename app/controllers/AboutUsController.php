@@ -1,6 +1,6 @@
 <?php
 
-class StaticController extends BaseController {
+class AboutUsController extends BaseController {
 
   /**
   * The events implementation.
