@@ -123,25 +123,6 @@ table.members b.name {
   font-size: 18px;
 }
 
-table#login {
-  width: auto;
-}
-
-table#login td {
-  border: none;
-  width: auto;
-}
-
-iframe {
-  border: none;
-  height: 500px;
-  margin-top: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  text-align: center;
-  width: 100%;
-}
-
 #notice {
   display: none;
 }
