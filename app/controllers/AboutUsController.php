@@ -9,7 +9,7 @@ class AboutUsController extends BaseController {
   */
   public function by_laws ()
   {
-    return View::make('static.by-laws');
+    return View::make('about.by-laws');
   }
 
 }
