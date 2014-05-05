@@ -12,4 +12,13 @@ class AboutUsController extends BaseController {
     return View::make('about.by-laws');
   }
 
+  /**
+  * GET -> http://irexinc.org/contact
+  *
+  * @return view
+  */
+  public function getContact ()
+  {
+    return View::make('about.contact');
+  }
 }
