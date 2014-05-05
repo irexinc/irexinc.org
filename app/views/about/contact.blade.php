@@ -13,7 +13,7 @@ Contact &middot; Indiana Real Estate Exchangors, Inc.
           <label for="name">Name:</label>
         </dt>
         <dd >
-          <input type="text" name="contact[name]" id="name" autofocus />
+          <input type="text" name="contact[name]" id="name" autofocus placeholder="Your Name"/>
         </dd>
 
         <dt class="input-label">
@@ -27,14 +27,14 @@ Contact &middot; Indiana Real Estate Exchangors, Inc.
           <label for="subject">Subject:</label>
         </dt>
         <dd>
-          <input type="text" name="contact[subject]" id="subject" />
+          <input type="text" name="contact[subject]" id="subject" placeholder="Subject of Contact Request (Can be left blank)." />
         </dd>
 
         <dt class="input-label">
           <label for="comments">Body:</label>
         </dt>
         <dd>
-          <textarea name="contact[comments]" id="comments" required></textarea>
+          <textarea name="contact[comments]" id="comments" required placeholder="Details about your contact request."></textarea>
         </dd>
 
       </dl>
