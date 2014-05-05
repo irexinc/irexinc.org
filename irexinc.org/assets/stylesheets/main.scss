@@ -1,0 +1,379 @@
+html, body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  background-color: #90AB76;
+  color: #2d2d2d;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+}
+
+a {
+  border-bottom: 1px solid #2e85b2;
+  color: #2e85b2;
+  text-decoration: none;
+}
+
+
+b#failed {
+  color: #E05D6F;
+}
+
+
+dl.form {
+  margin: 15px 0;
+
+  &>dt {
+    margin: 0 0 6px;
+
+    label {
+      font-weight: bold;
+      position: relative;
+    }
+
+    &.input-label {
+      margin-top: 15px;
+    }
+  }
+
+  &>dd {
+    margin-left: 0;
+
+    input[input="text"] {
+      margin-right: 5px;
+      width: 600px;
+      // max-width: 100%;
+      border: 1px solid #ccc;
+      min-height: 34px;
+      padding: 7px 8px;
+      outline: none;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+      vertical-align: middle;
+    }
+
+    textarea {
+      min-height: 200px;
+      width: 100%;
+    }
+  }
+}
+
+
+
+h4 {
+  display: block;
+  font-size: 20px;
+}
+
+
+img {
+  border: none;
+
+  &.center {
+    left: 50%;
+    margin-left: -25%;
+    position: relative;
+  }
+
+  &.thumbnail {
+    margin: 0 0 9px 9px;
+  }
+}
+
+
+p.center {
+  text-align: center;
+}
+
+
+table {
+  margin-bottom: 10px;
+  padding: 0;
+  width: 984px;
+
+  td {
+    border: 1px solid #5D5D5D;
+    padding: 5px;
+
+    &.left {
+      text-align: left;
+    }
+
+    &.right {
+      text-align: right;
+    }
+  }
+
+  tr {
+    text-align: center;
+
+    &.header {
+      border-bottom: 2px solid #5D5D5D;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &.canceled-meeting {
+      background-color: #FF0033;
+      color: #2d2d2d;
+    }
+  }
+
+  &.members {
+    margin-top: 20px;
+
+    b.name {
+      font-size: 18px;
+    }
+
+    td {
+      padding: 5px 1px;
+      width: 328px;
+    }
+  }
+}
+
+
+.by-laws {
+  a.top {
+    font-size: 12px;
+  }
+
+  h4 {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+
+.informational-meeting {
+  color: #FF7200;
+
+  a {
+    border-bottom: 1px solid #2e85b2;
+    color: #2e85b2;
+    text-decoration: none;
+  }
+}
+
+.canceled-meeting {
+  color: #FF0033;
+
+  a {
+    border-bottom: none;
+    color: #2d2d2d;
+    text-decoration: none;
+  }
+}
+
+
+.form-actions {
+  margin: 10px 0;
+}
+
+
+#content-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1024px;
+}
+
+
+#notice {
+  display: none;
+}
+
+
+#table-of-contents {
+  ol {
+    li {
+      margin-bottom: 5px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+#header {
+  background-color: #FFF;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  height: 410px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  position: relative;
+
+  #banner {
+    h1 {
+      background-color: #fff;
+      font-size: 40px;
+      letter-spacing: 5px;
+      margin: 0 0 0 10px;
+      position: relative;
+      text-align: center;
+      top: -80px;
+      width: 1000px;
+      word-spacing: 10px;
+    }
+
+    img {
+      margin: 10px 0 0 10px;
+      padding-bottom: 60px;
+    }
+  }
+
+  #nav {
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+    top: -80px;
+
+    a {
+      color: #2d2d2d;
+      border-bottom: none;
+
+      &.is-selected {
+        border-bottom: 1px solid #2d2d2d;
+      }
+    }
+
+    ul {
+      -webkit-padding-start: 0;
+
+      li {
+        border-right: 1px solid #ccc;
+        display: inline;
+        margin: 0 0 0 -3px;
+        *margin: 0;
+        padding: 5px 10px;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+
+.content-block {
+  background-color: #FFF;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  p.map-title {
+    font-size: 20px;
+    font-weight: 800;
+    position: relative;
+    top: 20px;
+  }
+
+  .title {
+    border-bottom: 2px solid #90AB76;
+    font-size: 24px;
+    font-weight: 700;
+    left: -20px;
+    margin-bottom: 5px;
+    padding: 0 0 5px 20px;
+    position: relative;
+    width: 1004px;
+  }
+
+  .sub-title {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+  }
+}
+
+.next-meeting {
+  overflow: hidden;
+  clear: both;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  h4 {
+    /*font-size: 18px;*/
+    border-bottom: 1px dotted black;
+    text-align: center;
+    a {
+      border-bottom: none;
+    }
+  }
+
+  .left {
+    float: left;
+    clear: both;
+    overflow: hidden;
+    /*width: 81.5%;*/
+  }
+
+  .next-meeting-container {
+    float: left;
+    width: 492px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    h4 {
+      margin-bottom: 15px;
+      display: block;
+    }
+  }
+
+  .right {
+    float: right;
+    width: 18%;
+    margin-left: 5px;
+
+    h4 {
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      display: block;
+      clear: both;
+      margin-bottom: 10px;
+
+      span {
+        display: block;
+        float: left;
+        width: 70px;
+        font-weight: 700;
+        margin-bottom: 5px;
+
+        &::after {
+          content: "-";
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  background-color: #FFF;
+  box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  -webkit-box-shadow: 0 15px 10px -10px #444, 0 1px 4px #444;
+  margin: 20px 0 -5px 0;
+  padding: 10px 0;
+  text-align: center;
+}
