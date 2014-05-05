@@ -22,6 +22,9 @@ Route::get('/speakers', 'SpeakersController@index');
 
 Route::get('/by-laws', 'AboutUsController@by_laws');
 
+Route::get('/contact', 'AboutUsController@getContact');
+Route::post('/contact', 'AboutUsController@postContact');
+
 Route::get('/documents', 'DocumentsController@index');
 
 Route::get('/facebook', function() {
