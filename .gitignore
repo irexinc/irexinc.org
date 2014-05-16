@@ -9,3 +9,5 @@ build/
 script/lastSha
 script/deploy
 .sass-cache/
+.env.development.php
+.env.php
