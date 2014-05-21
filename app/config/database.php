@@ -55,10 +55,10 @@ return array(
 
     'mysql' => array(
       'driver'    => 'mysql',
-      'host'      => 'localhost',
-      'database'  => 'database',
-      'username'  => 'root',
-      'password'  => '',
+      'host'      => $_ENV["MYSQL_HOST"],
+      'database'  => $_ENV["MYSQL_DATABASE"],
+      'username'  => $_ENV["MYSQL_USERNAME"],
+      'password'  => $_ENV["MYSQL_PASSWORD"],
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix'    => '',
@@ -84,6 +84,7 @@ return array(
       'prefix'   => '',
     ),
 
+    'migrations' => 'schema_migrations'
   ),
 
   /*
