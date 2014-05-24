@@ -71,6 +71,7 @@
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="{{ asset('/assets/fancybox/jquery.fancybox.pack.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
 
     @section('javascript')
       <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
