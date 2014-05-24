@@ -69,7 +69,7 @@
 
     <!-- SPARKLES -->
 
-    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="{{ asset('/assets/fancybox/jquery.fancybox.pack.js') }}"></script>
 
     @section('javascript')
