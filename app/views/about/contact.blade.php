@@ -5,36 +5,43 @@ Contact &middot; Indiana Real Estate Exchangors, Inc.
 @stop
 
 @section('content')
+
+  @if (!empty($success))
+    <div class="content-block green">
+      <p>Contact successfully submitted.</p>
+    </div>
+  @endif
+
   <div class="content-block">
-    {{ Form::open(array('url' => 'contact')) }}
+    {{ Form::open(array('url' => 'contact', 'novalidate')) }}
       <dl class="form">
 
         <dt class="input-label">
           <label for="name">Name:</label>
         </dt>
         <dd >
-          <input type="text" name="contact[name]" id="name" autofocus placeholder="Your Name"/>
+          <input type="text" name="name" id="name" autofocus placeholder="Your Name"/>
         </dd>
 
         <dt class="input-label">
           <label for="email">E-Mail:</label>
         </dt>
         <dd>
-          <input type="email" name="contact[email]" id="email" required placeholder="example@example.com" />
+          <input type="email" name="email" id="email" required placeholder="example@example.com" />
         </dd>
 
         <dt class="input-label">
           <label for="subject">Subject:</label>
         </dt>
         <dd>
-          <input type="text" name="contact[subject]" id="subject" placeholder="Subject of Contact Request (Can be left blank)." />
+          <input type="text" name="subject" id="subject" placeholder="Subject of Contact Request (Can be left blank)." />
         </dd>
 
         <dt class="input-label">
           <label for="comments">Body:</label>
         </dt>
         <dd>
-          <textarea name="contact[comments]" id="comments" required placeholder="Details about your contact request."></textarea>
+          <textarea name="comments" id="comments" required placeholder="Details about your contact request."></textarea>
         </dd>
 
       </dl>
