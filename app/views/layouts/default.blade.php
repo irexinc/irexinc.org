@@ -73,27 +73,22 @@
     <script src="{{ asset('/assets/fancybox/jquery.fancybox.pack.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
 
-    @section('javascript')
-      <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+    <!-- Set the active navigation item. -->
+    <script>
+      $(document).ready(function() {
+          $('#nav a[href$="' + location.toString() + '"]').addClass("is-selected");;
 
-      <!-- Set the active navigation item. -->
-      <script>
-        $(document).ready(function() {
-            $('#nav a[href$="' + location.toString() + '"]').addClass("is-selected");;
-
-            $(".fancybox").fancybox({
-              openEffect : 'none',
-              closeEffect	: 'none',
-              helpers : {
-                title : {
-                  type : 'outside'
-                }
+          $(".fancybox").fancybox({
+            openEffect : 'none',
+            closeEffect	: 'none',
+            helpers : {
+              title : {
+                type : 'outside'
               }
-            });
-        });
-      </script>
-
-    @show
+            }
+          });
+      });
+    </script>
 
     <script type="text/javascript">
       var _gauges = _gauges || [];
@@ -108,6 +103,9 @@
         s.parentNode.insertBefore(t, s);
       })();
     </script>
+
+    @section('javascript')
+    @show
 
   </body>
 </html>
