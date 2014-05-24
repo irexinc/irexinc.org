@@ -14,7 +14,7 @@
     <!-- B-E-A-UTIFUL -->
 
     <link href="{{ asset('/assets/stylesheets/normalize-min.css') }}" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
     <link href="{{ asset('/assets/fancybox/jquery.fancybox.pack.css') }}" rel="stylesheet">
 
     <link href="{{ asset('/assets/stylesheets/main.css') }}" rel="stylesheet" media="screen, projection">
@@ -69,7 +69,7 @@
 
     <!-- SPARKLES -->
 
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="{{ asset('/assets/fancybox/jquery.fancybox.pack.js') }}"></script>
 
     @section('javascript')
