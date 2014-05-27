@@ -73,36 +73,7 @@
     <script src="{{ asset('/assets/fancybox/jquery.fancybox.pack.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.47/jquery.form-validator.min.js"></script>
 
-    <!-- Set the active navigation item. -->
-    <script>
-      $(document).ready(function() {
-          $('#nav a[href$="' + location.toString() + '"]').addClass("is-selected");;
-
-          $(".fancybox").fancybox({
-            openEffect : 'none',
-            closeEffect	: 'none',
-            helpers : {
-              title : {
-                type : 'outside'
-              }
-            }
-          });
-      });
-    </script>
-
-    <script type="text/javascript">
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '511e675ef5a1f51137000008');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
+    <script src="{{ asset('assets/javascript/application.js') }}"></script>
 
     @section('javascript')
     @show
