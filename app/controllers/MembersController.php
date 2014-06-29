@@ -38,8 +38,11 @@ class MembersController extends BaseController {
   {
     $roles = $this->member_roles->with(array('members' => function($query)
     {
+
       $query->orderBy('last_name')->orderBy('first_name');
-    }))->get();
+
+    }))
+    ->where('id', '<>', 6)->get();
 
     return View::make('members.index')->with('roles', $roles);
   }
