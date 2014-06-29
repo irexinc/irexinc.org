@@ -9,25 +9,18 @@ class Member extends Eloquent {
    */
   protected $table = 'members';
 
-  /**
-  * Return an array of all regular members.
-  *
-  * @var object
-  */
-  public function getRegularMembers()
-  {
-    return $this->where('active', '=', true)->where('board', '=', false)->orderBy('last_name')->get();
-  }
 
   /**
-  * Return an array of all board members.
   *
-  * @var object
+  * member.role_id as follows:
+  *
+  * 1 = Board
+  * 2 = Regular
+  * 3 = Affiliate
+  * 4 = Associate
+  * 5 = Student
+  *
   */
-  public function getBoardMembers()
-  {
-    return $this->where('active', '=', true)->where('board', '=', true)->orderBy('last_name')->get();
-  }
 
   /**
   * Is the member active?
@@ -40,21 +33,11 @@ class Member extends Eloquent {
   }
 
   /**
-  * Is the member on the board?
-  *
-  * @return boolean
-  */
-  public function isBoardMember()
-  {
-    return (boolean)$this->board;
-  }
-
-  /**
   * The member's first and last name.
   *
-  * @var string
+  * @return string
   */
-  public function getName() {
+  public function getFullName() {
     if ($this->suffix != NULL) {
       return trim($this->first_name . " " . $this->last_name . ", " . $this->suffix);
     }
@@ -95,5 +78,15 @@ class Member extends Eloquent {
     }
 
     return $this->city . ", " . $this->state . " " . substr($this->zip, 0, 5);
+  }
+
+  /**
+  * Create the member to member_role relation.
+  *
+  *
+  */
+  public function roles()
+  {
+    $this->belongsTo('MemberRoles', 'id', 'role_id');
   }
 }

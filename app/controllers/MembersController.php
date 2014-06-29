@@ -12,11 +12,11 @@
 class MembersController extends BaseController {
 
   /**
-  * The members implementation.
+  * The database table implementation.
   *
   * @var Members
   */
-  protected $members;
+  protected $member_roles;
 
   /**
   * Set our Member instance.
@@ -24,9 +24,9 @@ class MembersController extends BaseController {
   * @param Member $member
   * @return void
   */
-  public function __construct(Member $members)
+  public function __construct(MemberRoles $member_roles)
   {
-    $this->members = $members;
+    $this->member_roles = $member_roles;
   }
 
   /**
@@ -36,12 +36,12 @@ class MembersController extends BaseController {
   */
   public function index ()
   {
-    $members = array(
-      "board"   => $this->members->getBoardMembers(),
-      "regular" => $this->members->getRegularMembers(),
-    );
+    $roles = $this->member_roles->with(array('members' => function($query)
+    {
+      $query->orderBy('last_name')->orderBy('first_name');
+    }))->get();
 
-    return View::make('members.index')->with('members', $members);
+    return View::make('members.index')->with('roles', $roles);
   }
 
 }

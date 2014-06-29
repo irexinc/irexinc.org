@@ -5,68 +5,46 @@ Members &middot; Indiana Real Estate Exchangors, Inc.
 @stop
 
 @section('content')
-  <div class="content-block">
-    <div class="title">Board Members</div>
 
-    <table class="members">
-      <?php $count = 0; ?>
+  @foreach($roles as $role)
 
-      @foreach ($members["board"] as $member)
+    @if (count($role->members) > 0)
 
-        @if ($count == 0)
-          <tr>
-        @endif
+      <div class="content-block">
+        <div class="title">{{{ $role->getName() }}}</div>
 
-        @include('members.member')
-        <?php $count++; ?>
-
-        @if ($count == 3)
-          </tr>
+        <table class="members">
           <?php $count = 0; ?>
-        @endif
 
-      @endforeach
+          @foreach ($role->members as $member)
 
-      @if ($count > 0 and $count < 3)
-        @for ($index = $count; ($index < 3); $index++)
-          <td></td>
-        @endfor
-        </tr>
-      @endif
+            @if ($count == 0)
+              <tr>
+            @endif
 
-    </table>
+            @include('members.member')
+            <?php $count++; ?>
 
-  </div>
+            @if ($count == 3)
+              </tr>
+              <?php $count = 0; ?>
+            @endif
 
-  <div class="content-block">
-    <div class="title">Regular Members</div>
+          @endforeach
 
-    <table class="members">
-      <?php $count = 0; ?>
+          @if ($count > 0 and $count < 3)
+            @for ($index = $count; ($index < 3); $index++)
+              <td></td>
+            @endfor
+            </tr>
+          @endif
 
-      @foreach ($members["regular"] as $member)
+        </table>
 
-        @if ($count == 0)
-          <tr>
-        @endif
+      </div>
 
-        @include('members.member')
-        <?php $count++; ?>
+    @endif
 
-        @if ($count == 3)
-          <?php $count = 0; ?>
-          </tr>
-        @endif
-      @endforeach
+  @endforeach
 
-      @if ($count > 0 and $count < 3)
-        @for ($index = $count; ($index < 3); $index++)
-          <td></td>
-        @endfor
-        </tr>
-      @endif
-
-    </table>
-
-  </div>
 @stop

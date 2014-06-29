@@ -1,5 +1,5 @@
 <td>
-  <b class="name">{{ $member->getName() }}</b><br>
+  <b class="name">{{ $member->getFullName() }}</b><br>
   @if (!empty($member->title))
     <em><b>{{ $member->title }}</b></em><br>
   @endif
