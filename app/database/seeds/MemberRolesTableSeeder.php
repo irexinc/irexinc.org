@@ -10,6 +10,7 @@ class MemberRolesTableSeeder extends Seeder {
       array( 'name' => 'Affiliate Members' ),
       array( 'name' => 'Associate Members' ),
       array( 'name' => 'Student Members' ),
+      array( 'name' => 'Inactive Members' ),
     );
 
     DB::table('member_roles')->insert($member_roles);

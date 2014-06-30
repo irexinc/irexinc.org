@@ -19,6 +19,7 @@ class Member extends Eloquent {
   * 3 = Affiliate
   * 4 = Associate
   * 5 = Student
+  * 6 = Inactive ***
   *
   */
 
@@ -29,7 +30,7 @@ class Member extends Eloquent {
   */
   public function isActive()
   {
-    return (boolean)$this->active;
+    return (boolean)($this->role_id != 6);
   }
 
   /**
