@@ -42,7 +42,7 @@ class MembersController extends BaseController {
       $query->orderBy('last_name')->orderBy('first_name');
 
     }))
-    ->where('id', '<>', 6)->get();
+    ->where('id', '>', 0)->get();
 
     return View::make('members.index')->with('roles', $roles);
   }
