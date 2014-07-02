@@ -1,0 +1,1 @@
+<p>Joining us today is a group from <a href="http://www.indyrezone.org/" target="_blank">Indy Rezone</a>. They will be going through a presentation on what they are thinking to update zoning regulations in the Indianapolis area and asking for your feedback. </p>
