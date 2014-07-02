@@ -1,0 +1,1 @@
+<p>Speaking today is Sharon Thompson from <a href="http://www.kwcommercialindiana.com/" target="_blank">Keller Williams Commercial</a>. She will be speaking about Counseling International Buyers and Seller.</p>
