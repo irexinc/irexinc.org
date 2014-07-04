@@ -175,4 +175,9 @@ return array(
 
   ),
 
+  /**
+  * Used to set the default cipher for Laravel.
+  */
+  'cipher' => MCRYPT_RIJNDAEL_256
+
 );
