@@ -1,5 +1,4 @@
-# Update the composer executable.
-php composer.phar selfupdate
+#!/bin/sh
 
 # Update our packages.
-php composer.phar update
+composer update
