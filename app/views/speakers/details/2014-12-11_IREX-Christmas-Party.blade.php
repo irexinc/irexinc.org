@@ -1,0 +1,1 @@
+<p>The IREX Christmas party will take place at <a href="https://www.google.com/maps/preview/place/2615%20E.%20National%20Road,%20Indianapolis,%20IN">Primo's Banquet Hall</a> starting after the meeting at 9 AM.</p>
