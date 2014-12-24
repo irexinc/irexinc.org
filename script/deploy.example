@@ -61,6 +61,7 @@ mrm -r app/storage/*/*
 quit
 EOF >> $OUTPUT 2>&1
 success 'updated vendor cache'
+
 #
 # Make sure we revert our vendor stack back to dev
 #
