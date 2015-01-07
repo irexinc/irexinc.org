@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Start sass compiler
+sass --watch ./irexinc.org/assets/stylesheets/main.scss:./irexinc.org/assets/stylesheets/main.css --style compressed &
+
+# Start artisan server for local development
+php artisan serve &

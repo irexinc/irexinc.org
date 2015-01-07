@@ -1,0 +1,16 @@
+#!/bin/bash
+
+git filter-branch --env-filter '
+
+cn="$GIT_COMMITTER_NAME"
+cm="$GIT_COMMITTER_EMAIL"
+
+if [ "$GIT_COMMITTER_EMAIL" != "memborsky@gmail.com" ]
+then
+    cn="Matt Emborsky"
+    cm="memborsky@gmail.com"
+fi
+
+export GIT_COMMITTER_NAME="$cn"
+export GIT_COMMITTER_EMAIL="$cm"
+'
