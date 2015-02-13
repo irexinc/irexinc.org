@@ -1,3 +1,0 @@
-<p>We are pleased to have Dean Murphy, CCIM and Julie Lester from <a href="http://www.fairwaycommercial.com" target="_blank">Fairway Commercial Lending</a>.</p>
-<p>They will be giving a review of their loan programs as they relate to commercial real estate.</p>
-<p>Fairway Commercial Lending is a Commercial Mortgage Banking company with a focus in providing commercial real estate financing solutions for business owners and investors seeking to purchase or refinance commercial property.</p>
