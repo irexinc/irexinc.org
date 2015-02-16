@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace irexinc\Commands;
 
 abstract class Command {
 

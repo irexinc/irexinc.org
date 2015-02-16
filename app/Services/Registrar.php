@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace irexinc\Services;
 
-use App\User;
+use irexinc\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
