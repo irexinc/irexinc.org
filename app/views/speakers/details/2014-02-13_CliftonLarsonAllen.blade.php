@@ -1,1 +1,0 @@
-<p>We are pleased to welcome Randie Dial from <a href="http://www.cliftonlarsonallen.com">CliftonLarsonAllen</a>. Randie will be speaking about business valuations, transfer issues related to the new regulations.</p>

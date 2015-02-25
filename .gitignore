@@ -1,12 +1,5 @@
-/bootstrap/compiled.php
-composer.phar
 composer.lock
-vendor/
-.DS_Store
-logs/
-build/
-script/lastSha
+/vendor
+/node_modules
+.env
 script/deploy
-.sass-cache/
-.env.development.php
-.env.php

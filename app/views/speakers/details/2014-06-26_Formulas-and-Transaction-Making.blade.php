@@ -1,1 +1,0 @@
-<p>Ron Bowden from <a href="http://www.evergreeninvest.com" target="_blank">Evergreen Investment Corp.</a> will be giving a talk on Formulas and Transaction Making.</p>

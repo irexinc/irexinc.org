@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: irexinc
+        psr4_prefix: irexinc
+        src_path: app
