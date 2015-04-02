@@ -1,1 +1,1 @@
-<p>David Ostermayer speaks on Commercial Insurance.</p>
+<p>David Ostermayer speaks on Building Owners insurance concerns “Quick Summary”.</p>
