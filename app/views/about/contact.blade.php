@@ -7,12 +7,12 @@ Contact &middot; Indiana Real Estate Exchangors, Inc.
 @section('content')
 
   <div class="content-block green success" id="success-message">
-    <p>Contact successfully submitted.</p>
+    <p>Contact request successfully submitted.</p>
   </div>
 
   <div class="content-block">
     <div class="title">Mailing Address</div>
-    <p>IREX, Inc.<br>P. O. Box 2385<br>Indianapolis, IN 46206</p>
+    <p>IREX, Inc.<br>P. O. Box 2385<br>Indianapolis, IN 46206<br>(317) 616-4042</p>
   </div>
 
   <div class="content-block">
