@@ -11,6 +11,12 @@ Contact &middot; Indiana Real Estate Exchangors, Inc.
   </div>
 
   <div class="content-block">
+    <div class="title">Mailing Address</div>
+    <p>IREX, Inc.<br>P. O. Box 2385<br>Indianapolis, IN 46206</p>
+  </div>
+
+  <div class="content-block">
+    <div class="title">Contact Request</div>
 
     {{ Form::open(array('id' => 'contact-form', 'url' => 'contact', 'novalidate')) }}
       <dl class="form">
