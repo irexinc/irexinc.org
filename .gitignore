@@ -10,3 +10,4 @@ script/deploy
 .sass-cache/
 .env.development.php
 .env.php
+irexinc.org/web.config
